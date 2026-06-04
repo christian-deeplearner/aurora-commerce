@@ -1,26 +1,66 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  Aurora design system — editorial-luxury, mirrors thegaochao.vercel.app.
+  Palette + type tokens scanned live from the reference site.
+*/
+@theme {
+  /* Surface */
+  --color-paper: #f4f1ea;        /* warm bone background */
+  --color-card: #faf9f5;         /* slightly lighter card */
+  --color-ink: #1a1a1a;          /* near-black foreground */
+  --color-ink-muted: #6f6e6a;    /* ~55% ink on paper */
+  --color-hairline: #dcd8cf;     /* solid approx of #1a1a1a2e on paper */
+  --color-panel: #1a1a1a;        /* dark full-bleed sections */
+  --color-panel-2: #282828;
+  --color-paper-on-panel: #f4f1ea;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Accent — Aurora's restrained cool teal/green (vs GAOCHAO chartreuse) */
+  --color-accent: #2f5d54;
+  --color-accent-soft: #d8e4de;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Status (command center) */
+  --color-positive: #2f7d5b;
+  --color-warning: #9a6a1e;
+  --color-critical: #a23a2e;
+
+  /* Map framework aliases */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+
+  /* Type */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  /* Small uppercase wide-tracked label, the GAOCHAO/Aurora signature */
+  .label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.6875rem; /* 11px */
+    line-height: 1;
+    color: var(--color-ink);
+  }
+  .label-muted { color: var(--color-ink-muted); }
+
+  /* Oversized light serif display */
+  .display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+  }
+  .serif { font-family: var(--font-serif); font-weight: 400; }
+  .hairline { border-color: var(--color-hairline); }
 }

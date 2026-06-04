@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>How to Become a 100x Engineer — Aurora Workshop</title>
+
+  <!-- reveal.js 5.x core + base theme (CDN, no build) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/white.css" id="theme" />
+  <!-- highlight.js theme for <pre><code> blocks -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/monokai.css" />
+
+  <!-- Google Fonts: Instrument Serif (display) + Geist / Geist Mono (labels, code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!--
+    ===========================================================================
+    AURORA DECK THEME — "A House of Light"
+    Mirrors src/app/globals.css tokens EXACTLY. Do not invent hex colors.
+      paper   #F4F1EA   card   #FAF9F5   ink    #1A1A1A   ink-muted #6F6E6A
+      hairline #DCD8CF  panel  #1A1A1A   accent #2F5D54   accent-soft #D8E4DE
+    Display = Instrument Serif (light). Labels & code = Geist Mono.
+    ===========================================================================
+  -->
+  <style>
+    :root {
+      --paper: #F4F1EA;
+      --card: #FAF9F5;
+      --ink: #1A1A1A;
+      --ink-muted: #6F6E6A;
+      --hairline: #DCD8CF;
+      --panel: #1A1A1A;
+      --panel-2: #282828;
+      --paper-on-panel: #F4F1EA;
+      --accent: #2F5D54;
+      --accent-soft: #D8E4DE;
+      --positive: #2F7D5B;
+      --warning: #9A6A1E;
+      --critical: #A23A2E;
+      --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+      --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+      --mono: "Geist Mono", ui-monospace, monospace;
+
+      /* reveal sizing */
+      --r-main-font: var(--sans);
+      --r-heading-font: var(--serif);
+    }
+
+    .reveal-viewport { background: var(--paper); }
+    .reveal { font-family: var(--sans); color: var(--ink); font-weight: 300; font-size: 30px; }
+    .reveal .slides { text-align: left; }
+    .reveal .slides section { height: 100%; }
+
+    /* Headings — oversized light serif, tight tracking */
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      color: var(--ink);
+      text-transform: none;
+      letter-spacing: -0.01em;
+      line-height: 0.98;
+      margin: 0 0 0.4em 0;
+    }
+    .reveal h1 { font-size: 2.7em; }
+    .reveal h2 { font-size: 1.9em; }
+    .reveal h3 { font-size: 1.3em; }
+    .reveal .display { font-family: var(--serif); font-weight: 400; line-height: 0.95; letter-spacing: -0.015em; }
+
+    .reveal p { line-height: 1.5; font-weight: 300; }
+    .reveal strong { font-weight: 500; }
+    .reveal em { font-style: italic; color: var(--accent); }
+    .reveal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+
+    /* Signature label: uppercase wide-tracked mono */
+    .label {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.62em;
+      line-height: 1;
+      color: var(--ink);
+      display: inline-block;
+    }
+    .label-muted { color: var(--ink-muted); }
+    .label-accent { color: var(--accent); }
+
+    /* Lists — generous, calm */
+    .reveal ul, .reveal ol { display: block; margin-left: 1em; }
+    .reveal li { margin: 0.45em 0; line-height: 1.45; font-weight: 300; }
+    .reveal li::marker { color: var(--accent); }
+
+    /* Hairline rules — the Aurora collection-row separator */
+    .hairline { border: 0; border-top: 1px solid var(--hairline); margin: 0.7em 0; }
+    .reveal hr { border: 0; border-top: 1px solid var(--hairline); }
+
+    /* Collection-row motif: [mark] [name] [mono label] [serif one-liner] [arrow] */
+    .row {
+      display: grid;
+      grid-template-columns: 2.2em 1fr;
+      gap: 0.9em;
+      align-items: baseline;
+      padding: 0.55em 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .row:last-child { border-bottom: 1px solid var(--hairline); }
+    .row .mark { font-family: var(--serif); font-size: 1.3em; color: var(--accent); }
+    .row .body .nm { font-family: var(--serif); font-size: 1.15em; }
+    .row .body .ln { color: var(--ink-muted); font-size: 0.82em; font-weight: 300; }
+    .row .body .lbl { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.56em; color: var(--accent); margin-left: 0.6em; }
+
+    /* Code blocks — copy-paste prompts */
+    .reveal pre {
+      width: 100%;
+      box-shadow: none;
+      font-size: 0.5em;
+      margin: 0.5em 0;
+    }
+    .reveal pre code {
+      font-family: var(--mono);
+      padding: 1.1em 1.3em;
+      border-radius: 4px;
+      background: var(--panel);
+      color: var(--paper-on-panel);
+      line-height: 1.5;
+      max-height: 460px;
+      border: 1px solid var(--panel-2);
+    }
+    /* "text" prompt blocks read as paper cards, not terminal */
+    .reveal pre code.language-text {
+      background: var(--card);
+      color: var(--ink);
+      border: 1px solid var(--hairline);
+    }
+    .prompt-label {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.5em;
+      color: var(--ink-muted);
+      margin-bottom: -0.2em;
+    }
+
+    /* Dark panel slides (manifesto / motif) */
+    section.panel { background: var(--panel) !important; }
+    .reveal section.panel,
+    .reveal section.panel h1,
+    .reveal section.panel h2,
+    .reveal section.panel h3,
+    .reveal section.panel p,
+    .reveal section.panel li { color: var(--paper-on-panel); }
+    .reveal section.panel .label { color: var(--accent-soft); }
+    .reveal section.panel em { color: var(--accent-soft); }
+    .reveal section.panel a { color: var(--accent-soft); border-bottom-color: var(--accent); }
+    .reveal section.panel hr { border-top-color: #3a3a3a; }
+
+    /* Two-column manifesto layout */
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2em; align-items: start; }
+    .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.6em; align-items: start; }
+
+    /* Concept tag — ties slide to the 7-idea spine */
+    .concept {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.46em;
+      color: var(--accent);
+      border: 1px solid var(--accent-soft);
+      border-radius: 999px;
+      padding: 0.3em 0.7em;
+      display: inline-block;
+    }
+    .concept-row { margin-top: 0.6em; }
+    .concept-row .concept { margin-right: 0.4em; }
+
+    /* LIVE DEMO badge */
+    .demo-badge {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.5em;
+      color: var(--paper-on-panel);
+      background: var(--critical);
+      border-radius: 3px;
+      padding: 0.35em 0.7em;
+      display: inline-block;
+      font-weight: 500;
+    }
+    .demo-badge.dot::before { content: "● "; }
+    .fallback {
+      font-family: var(--mono);
+      font-size: 0.52em;
+      color: var(--ink-muted);
+      letter-spacing: 0.04em;
+      margin-top: 0.5em;
+    }
+    .fallback::before { content: "⎌ fallback: "; color: var(--warning); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.85em; }
+
+    /* Kicker / eyebrow above headings */
+    .kicker { margin-bottom: 0.5em; }
+
+    /* Card callout */
+    .card-note {
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-left: 3px solid var(--accent);
+      border-radius: 3px;
+      padding: 0.7em 1em;
+      font-size: 0.82em;
+      font-weight: 300;
+    }
+
+    /* The recurring motif slide */
+    section.motif { background: var(--panel) !important; }
+    .reveal section.motif .display { color: var(--paper-on-panel); font-size: 2.4em; line-height: 1.05; }
+    .reveal section.motif .label { color: var(--accent-soft); }
+    .reveal section.motif em { color: var(--accent-soft); font-style: italic; }
+
+    /* Big stat / metric */
+    .stat { font-family: var(--serif); font-size: 3.2em; line-height: 1; color: var(--accent); }
+    .stat-sub { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.55em; color: var(--ink-muted); }
+
+    /* Speaker mark in nav corner */
+    .mark-corner {
+      position: fixed; top: 22px; left: 28px; z-index: 30;
+      font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.22em;
+      font-size: 11px; color: var(--ink-muted);
+    }
+    .reveal .slide-number { background: transparent; color: var(--ink-muted); font-family: var(--mono); font-size: 11px; }
+
+    .reveal .controls { color: var(--accent); }
+    .reveal .progress { color: var(--accent); height: 2px; }
+
+    /* small utility */
+    .muted { color: var(--ink-muted); }
+    .tight { line-height: 1.25; }
+    .sm { font-size: 0.82em; }
+    .xs { font-size: 0.68em; }
+    .center { text-align: center; }
+    .mt { margin-top: 0.8em; }
+    .mt2 { margin-top: 1.4em; }
+    .arrow { color: var(--accent); }
+
+    /* QR placeholder block */
+    .qr {
+      width: 160px; height: 160px; border: 1px solid var(--hairline);
+      background: var(--card); display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 10px; color: var(--ink-muted); text-align: center;
+      letter-spacing: 0.1em; text-transform: uppercase; border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="mark-corner">✦ Aurora — A House of Light</div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ===================================================================
+           SEGMENT 0 — WELCOME  (2 slides, 0:00)
+           =================================================================== -->
+
+      <!-- S1 · Title -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Live Workshop · TalentOS · June 7, 2026 · 8:00 AM PST</span>
+        <h1 class="display" style="font-size:3.4em;">How to Become a<br/>100x Engineer</h1>
+        <hr class="hairline" />
+        <div class="cols" style="margin-top:1.2em;">
+          <div>
+            <p class="sm muted">A 90-minute working session. You will clone one public repo and build alongside it — an editorial commerce house called <em>Aurora</em>, command center and storefront, built by an agent team.</p>
+            <p class="label label-accent" style="margin-top:1em;">It's not a stack. It's a posture.</p>
+          </div>
+          <div class="center">
+            <div class="qr">QR<br/>repo + deck</div>
+            <p class="xs muted" style="margin-top:0.5em;">github.com/christian-deeplearner/aurora-commerce</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Open warm. This is a working session, not a talk. By the end they'll have cloned a real public repo and have a path to run Mission 1 tonight, Mission 2 this weekend.
+          The title-slide repo metric (commit count / last-build) is pulled live at render — a small recursive nod: this deck ships in the same repo it teaches you to build.
+        </aside>
+      </section>
+
+      <!-- S2 · The meta-reveal promise -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Welcome · the meta-move</span>
+        <h2>This deck was built by the method it teaches.</h2>
+        <p>An agent team — named staff with job descriptions — wrote the scaffold, the storefront, the command center, the verification suite, and these slides. The Workflow that ran them is in the repo. The decisions they made are written into <span class="label label-accent">knowledge-base/decisions/</span>.</p>
+        <div class="card-note mt">Everything you see today is falsifiable. Real file paths. Real command output. Real diffs. Clone it and check.</div>
+        <div class="concept-row">
+          <span class="concept">memory base</span><span class="concept">closed-loop OS</span><span class="concept">agent team</span>
+        </div>
+        <aside class="notes">
+          State the promise once, clearly, then move on — don't oversell. The reveal pays off in the Future segment when we open the team-run log live. Anti-hype: we are not claiming magic; we're showing the receipts.
+        </aside>
+      </section>
+
+      <!-- ===================================================================
+           SEGMENT 1 — SPEAKER  (2 slides, 0:05)
+           =================================================================== -->
+
+      <!-- S3 · Who / why listen -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Speaker</span>
+        <h2>I'm an operator, not an influencer.</h2>
+        <div class="cols mt">
+          <div>
+            <p class="sm">I run real businesses with this method every day. I'm going to show you the working pattern, including where it breaks and how I recover. No hype cycle. No "200 prompts" bundle.</p>
+            <p class="sm mt">If you've run a P&L, made hiring calls, shipped under a deadline — this is pitched at your altitude, not at IDE-trick altitude.</p>
+          </div>
+          <div>
+            <p class="label label-accent">What you'll leave with</p>
+            <ul class="sm">
+              <li>One public repo you cloned live</li>
+              <li>A memory base you understand and own</li>
+              <li>An agent team you can re-run</li>
+              <li>A verification gate that says "done" honestly</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="notes">
+          Establish credibility through honesty, not credentials theater. The promise is a posture they can adopt, not a tool they buy. Keep it short — they came to build.
+        </aside>
+      </section>
+
+      <!-- S4 · What "100x" means -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Speaker · definition</span>
+        <h2>What "100x" actually means.</h2>
+        <p>Not typing faster. Not "10x your output." 100x is a <strong>harness multiplier</strong>: the same intelligence, given a real kitchen — your context, your tools, your guardrails, your team of agents — produces a different order of leverage.</p>
+        <hr class="hairline" />
+        <div class="cols">
+          <div>
+            <p class="label label-muted">The hype version</p>
+            <p class="sm muted">A better prompt. A magic model. Output measured in tokens per minute.</p>
+          </div>
+          <div>
+            <p class="label label-accent">The operator version</p>
+            <p class="sm">A better <em>harness</em>. A loop you don't rush. Output measured in shipped, verified work that compounds.</p>
+          </div>
+        </div>
+        <div class="concept-row"><span class="concept">harness engineering</span><span class="concept">context is the moat</span></div>
+        <aside class="notes">
+          Define the term so the rest of the session has a frame. The multiplier is the harness, not the model. This sets up the chef/kitchen metaphor in Landscape.
+        </aside>
+      </section>
+
+      <!-- ===================================================================
+           SEGMENT 2 — STATE OF THE LANDSCAPE  (6 slides, 0:10)
+           concepts 1, 3, 2, 6
+           =================================================================== -->
+
+      <!-- S5 · A faster Google is not AI-native -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Landscape · the shift</span>
+        <h2>A faster Google is not the same as AI-native.</h2>
+        <p>Open a chat tab. Ask. Copy the answer. Close the tab. Nothing changed in your kitchen — no food got made, you still do the work. That's AI-<em>adjacent</em>. Useful, dead end.</p>
+        <p class="mt">AI-native operators run a small, repeatable loop instead. Same intelligence on the other side. Wildly different leverage.</p>
+        <div class="concept-row"><span class="concept">context → plan → build → ship</span></div>
+        <aside class="notes">
+          From lesson-01-flywheel. The "phone call with a stranger" vs "skilled cook in your kitchen" is the load-bearing metaphor for the whole landscape segment. Lead with metaphor, then mechanism.
+        </aside>
+      </section>
+
+      <!-- S6 · Model / Harness / Agent — chef / kitchen -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Landscape · the core mental model</span>
+        <h2>Chef, kitchen, and the chef in <em>your</em> kitchen.</h2>
+        <div class="cols-3 mt">
+          <div>
+            <p class="label label-accent">Model</p>
+            <p class="serif" style="font-size:1.3em;">The chef.</p>
+            <p class="sm muted">Reasons and decides. Lives at the lab. You swap it when a better one ships.</p>
+          </div>
+          <div>
+            <p class="label label-accent">Harness</p>
+            <p class="serif" style="font-size:1.3em;">The kitchen.</p>
+            <p class="sm muted">Claude Code. Executes, constrains, connects. Tools are the only interface to the world.</p>
+          </div>
+          <div>
+            <p class="label label-accent">Agent</p>
+            <p class="serif" style="font-size:1.3em;">The chef in your kitchen.</p>
+            <p class="sm muted">Your ingredients, your recipe card, running in a loop. Reads your stuff. Uses the stove.</p>
+          </div>
+        </div>
+        <div class="card-note mt">The unlock isn't a better prompt. It's a better kitchen.</div>
+        <div class="concept-row"><span class="concept">harness engineering</span></div>
+        <aside class="notes">
+          This is THE mental model the rest of the webinar runs on. Model = chef (Anthropic), Harness = kitchen (Claude Code), Agent = chef in your kitchen. Source: lesson-01-flywheel + harness-engineering learning. Say it slowly; let it land.
+        </aside>
+      </section>
+
+      <!-- S7 · Harness engineering -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Landscape · concept 3</span>
+        <h2>Stop asking for a better prompt. Build a better harness.</h2>
+        <p>The model reasons and decides. The harness <strong>executes, constrains, and connects</strong>. Tools are the only interface between the model and the world. Context is a managed resource. Permissions are declarative, not procedural.</p>
+        <p class="mt">That layer — the kitchen around the chef — is the product. It's where the 100x leverage actually lives, and it's the part you own.</p>
+        <div class="concept-row"><span class="concept">harness engineering</span><span class="concept">context is the moat</span></div>
+        <aside class="notes">
+          From the harness-engineering-is-the-product-layer learning. The reframe: prompt engineering is a dead end; harness engineering compounds. Everything we build today — CLAUDE.md, agents, skills, hooks, workflows — is harness.
+        </aside>
+      </section>
+
+      <!-- S8 · Name the memory base (sovereignty) -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Landscape · concept 2 · the throughline</span>
+        <h2>Your context is sovereign — if you own the files.</h2>
+        <p>If your context lives in ChatGPT or Claude.ai, you don't own it. AI-native operators <strong>export their context</strong>. They keep it in markdown files, in a folder they control.</p>
+        <div class="cols mt">
+          <div>
+            <p class="label label-accent">Why files in a folder win</p>
+            <ul class="sm">
+              <li>Any agent can read it</li>
+              <li>Any model can operate on it</li>
+              <li>Git versions every change</li>
+              <li>It's yours — it can't be deprecated out from under you</li>
+            </ul>
+          </div>
+          <div class="card-note">This is the <strong>memory base</strong>. It's the signature concept of this session, and we will build one live, on screen, inside the Aurora repo.</div>
+        </div>
+        <div class="concept-row"><span class="concept">memory base</span></div>
+        <aside class="notes">
+          Source: 01-what-it-means-to-be-ai-native-founder + local-first-markdown-is-agent-substrate. This is the emotional hook — sovereignty over your own knowledge. Plant it here; we build it live in Mission Deep-Dive; we reprise it in Future. "Files in a folder is amazing for agents."
+        </aside>
+      </section>
+
+      <!-- S9 · Legible closed-loop OS -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Landscape · concept 6</span>
+        <h2>AI-native is operating-system design, not tool adoption.</h2>
+        <p>Most founders use AI like a faster intern. The best founders turn the company into something <strong>agents can actually operate</strong>: work as artifacts, decisions that leave trails, every workflow with a source, a state, and a review loop.</p>
+        <div class="row" style="margin-top:1em;">
+          <div class="mark">◷</div>
+          <div class="body"><span class="nm">Source</span><span class="lbl">where it comes from</span><div class="ln">Every workflow starts from a captured, legible input.</div></div>
+        </div>
+        <div class="row">
+          <div class="mark">◑</div>
+          <div class="body"><span class="nm">State</span><span class="lbl">where it lives now</span><div class="ln">The current status is a file an agent can read, not tribal memory.</div></div>
+        </div>
+        <div class="row">
+          <div class="mark">◉</div>
+          <div class="body"><span class="nm">Review loop</span><span class="lbl">how it closes</span><div class="ln">A gate where a human (or a test) signs off before it's "done."</div></div>
+        </div>
+        <div class="concept-row"><span class="concept">closed-loop OS</span></div>
+        <aside class="notes">
+          Source: ai-native-companies-need-legible-closed-loop-operating-systems + the ai-first-company-operating-system brief. This justifies WHY the Aurora repo is shaped the way it is — every directory has a source, a state, a review loop. We'll point back to this slide during the live build.
+        </aside>
+      </section>
+
+      <!-- S10 · What 100x is NOT (anti-hype) -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Landscape · honest about limits</span>
+        <h2>What 100x is <em>not</em>.</h2>
+        <div class="cols mt">
+          <div>
+            <p class="label label-muted">Not this</p>
+            <ul class="sm muted">
+              <li>"10x your output" productivity hacking</li>
+              <li>A magic model that thinks for you</li>
+              <li>200 prompts in a Notion you'll never open</li>
+              <li>Autonomy as the selling point</li>
+              <li>"Anyone can code now" graduation-badge energy</li>
+            </ul>
+          </div>
+          <div>
+            <p class="label label-accent">This</p>
+            <ul class="sm">
+              <li>A loop you run and don't rush</li>
+              <li>A context base you own and grow</li>
+              <li>A few sharp skills you actually use</li>
+              <li>Autonomy <em>bounded by review gates</em></li>
+              <li>Judgment multiplied, not replaced</li>
+            </ul>
+          </div>
+        </div>
+        <p class="label label-accent mt2">The value is not that the agent is "autonomous." The value is that the workflow has a home.</p>
+        <aside class="notes">
+          Anti-hype beat. Pull from founders-running-ai-teams-on-rented-infrastructure: don't sell autonomy; sell the workflow having a home. This builds trust — trust is infrastructure. Be honest about what the method does and doesn't do.
+        </aside>
+      </section>
+
+      <!-- S11 · MOTIF SLIDE 1 -->
+      <section class="motif" data-background-color="#1A1A1A">
+        <span class="label kicker">The recurring line</span>
+        <p class="display" style="font-size:2.6em;">The model is not the moat.<br/>Your context is.</p>
+        <hr class="hairline" style="border-top-color:#3a3a3a; width:40%;" />
+        <p class="sm" style="color:#cfcdc6;">Swap the chef every quarter when a better one ships. You can't swap your ingredients. Build the context once; point every future model at it.</p>
+        <div class="concept-row"><span class="concept">context is the moat</span><span class="concept">memory base</span></div>
+        <aside class="notes">
+          The recurring motif slide. It returns once more in Future. Say the line, pause, let the room sit with it. This is the through-line of the entire 90 minutes.
+        </aside>
+      </section>
+
+      <!-- ===================================================================
+           SEGMENT 3 — PREPARATION ROADMAP  (7 slides, 0:25)
+           concept 4 + memory base
+           =================================================================== -->
+
+      <!-- S12 · The flywheel -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Prep Roadmap · concept 4</span>
+        <h2>The loop: Context → Plan → Build → Ship.</h2>
+        <div class="cols-3 mt">
+          <div>
+            <p class="label label-accent">Context</p>
+            <p class="sm">The ingredients, recipes, and pantry already in your kitchen.</p>
+          </div>
+          <div>
+            <p class="label label-accent">Plan</p>
+            <p class="sm">The menu you agree on before anyone turns on the stove.</p>
+          </div>
+        </div>
+        <div class="cols-3" style="margin-top:0.4em;">
+          <div>
+            <p class="label label-accent">Build</p>
+            <p class="sm">The cook actually cooking — you tasting and steering.</p>
+          </div>
+          <div>
+            <p class="label label-accent">Ship</p>
+            <p class="sm">Serving the meal. Food on a counter isn't dinner.</p>
+          </div>
+        </div>
+        <p class="label label-accent mt2">The leverage isn't in the prompt. It's in the loop. And the loop only works if you don't rush it.</p>
+        <aside class="notes">
+          From lesson-01-flywheel. Memorize the order: Context, Plan, Build, Ship. Plan mode is the pause most founders skip — "two minutes of menu talk saves an hour of throwing out a dish." Everything in Mission Deep-Dive is one turn of this loop.
+        </aside>
+      </section>
+
+      <!-- S13 · Mission 1 minimum requirements -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Prep Roadmap · Mission 1 — Command Center Setup</span>
+        <h2>The minimum kitchen.</h2>
+        <p class="sm">Before any cooking, the kitchen has to exist. Mission 1 is the AI-native dev environment — the smallest setup that lets a capable agent actually use the stove.</p>
+        <div class="cols mt">
+          <div>
+            <ul class="sm">
+              <li>A terminal you live in (Ghostty / iTerm)</li>
+              <li>Node via <span class="label-accent">nvm</span></li>
+              <li>Git + an SSH key to GitHub</li>
+              <li>Claude Code installed and signed in</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="sm">
+              <li>One MCP server wired (<span class="label-accent">Context7</span>, for live docs)</li>
+              <li>A project folder you own</li>
+              <li>A <span class="label-accent">CLAUDE.md</span> at its root</li>
+              <li>Scaffold + run one Next.js app</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-note mt">Take-home: run Mission 1 tonight. It's a one-evening setup that pays off for years.</div>
+        <aside class="notes">
+          Mission 1 from AI-CODING.pdf. Keep this at requirements altitude; the live env demo is the next slide. Don't drown them in install commands here — point them to the repo README's Mission 1 section.
+        </aside>
+      </section>
+
+      <!-- S14 · LIVE DEMO 1a — environment -->
+      <section data-background-color="#F4F1EA">
+        <span class="demo-badge dot">Live Demo 1a</span>
+        <h2 style="margin-top:0.3em;">The kitchen, set up live.</h2>
+        <p class="sm">Done in a real terminal beside this deck. The deck is the script — never a fake terminal.</p>
+        <p class="prompt-label">terminal · environment</p>
+<pre><code class="language-bash" data-trim data-noescape>
+# Node via nvm (version manager — never sudo a global node)
+nvm install --lts &amp;&amp; nvm use --lts
+
+# Git identity + SSH key to GitHub
+git config --global user.name  "Christian Acuna"
+ssh-keygen -t ed25519 -C "you@example.com"
+# → add ~/.ssh/id_ed25519.pub to GitHub → Settings → SSH keys
+
+# Install Claude Code, then sign in
+npm install -g @anthropic-ai/claude-code
+claude
+</code></pre>
+        <p class="fallback">deck/public/demo-1a-environment.gif</p>
+        <aside class="notes">
+          LIVE DEMO 1a. Run nvm, show node version, show ssh -T git@github.com succeeding, launch claude. If anything stalls past 60s, switch to deck/public/demo-1a-environment.gif and narrate over it. The point isn't the commands — it's that the kitchen is real and reproducible.
+        </aside>
+      </section>
+
+      <!-- S15 · Context7 MCP wiring -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Prep Roadmap · MCP as a typed interface</span>
+        <h2>Wire one tool: live docs via Context7.</h2>
+        <p class="sm">MCP is how the harness gets new, typed capabilities. We add exactly one today — Context7 — so the agent reads <em>current</em> library docs instead of guessing from training data.</p>
+        <p class="prompt-label">terminal · add an MCP server</p>
+<pre><code class="language-bash" data-trim data-noescape>
+# Register the Context7 docs server with Claude Code
+claude mcp add context7 -- npx -y @upstash/context7-mcp
+
+# Verify it's connected
+claude mcp list
+</code></pre>
+        <div class="card-note mt sm">One tool, wired well, beats ten you never call. MCP is a typed interface — not a plugin store to fill.</div>
+        <div class="concept-row"><span class="concept">harness engineering</span></div>
+        <aside class="notes">
+          Keep MCP minimal and concrete: one server, verified connected. Context7 is the right pick because it makes "the agent reads live docs" tangible. Resist the urge to demo five servers — that's harness clutter.
+        </aside>
+      </section>
+
+      <!-- S16 · CLAUDE.md as recipe card / company operating doc -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Prep Roadmap · the memory base · concept 2</span>
+        <h2><span class="label-accent">CLAUDE.md</span> is the recipe card on the fridge.</h2>
+        <p class="sm">It's the first thing the agent reads when it walks into the kitchen. Not code memory — the <strong>founding operating document</strong> of your company. The first thing a new senior hire reads on day one.</p>
+        <div class="cols-3 mt">
+          <div><p class="label label-accent">Who</p><p class="xs muted">Who runs this and who's it for.</p></div>
+          <div><p class="label label-accent">What</p><p class="xs muted">What we make and how.</p></div>
+          <div><p class="label label-accent">Who-for</p><p class="xs muted">The customer, named.</p></div>
+        </div>
+        <div class="cols" style="margin-top:0.4em;">
+          <div><p class="label label-accent">How-we-talk</p><p class="xs muted">Voice, banned phrases.</p></div>
+          <div><p class="label label-accent">What-we-refuse</p><p class="xs muted">The "Don't" list — guardrails.</p></div>
+        </div>
+        <aside class="notes">
+          Five company-altitude sections from module 02 (company-operating-doc): Who / What / Who-For / How-We-Talk / What-We-Refuse. Frame CLAUDE.md as the operating doc, not as "memory for the AI." We refactor a naive one into this shape live in Mission Deep-Dive.
+        </aside>
+      </section>
+
+      <!-- S17 · Three-layer context architecture (hot/cold) -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Prep Roadmap · context architecture · concept 6</span>
+        <h2>Hot context loads. Cold context waits.</h2>
+        <div class="cols mt">
+          <div>
+            <p class="label label-accent">Hot — auto-loaded</p>
+            <p class="sm"><span class="label-accent">CLAUDE.md</span> @-imports the leaves the agent needs every session: brand voice, active standards.</p>
+            <p class="label label-accent mt">Warm — on the path</p>
+            <p class="sm">Files the agent finds by following links from hot context.</p>
+          </div>
+          <div>
+            <p class="label label-accent">Cold — read on request</p>
+            <p class="sm"><span class="label-accent">knowledge-base/index.md</span> is a map the agent reads only when a task needs it. The whole archive, addressable but not loaded.</p>
+            <div class="card-note mt sm">Most operators carry too much hot context. Audit and move it down.</div>
+          </div>
+        </div>
+        <div class="concept-row"><span class="concept">memory base</span><span class="concept">context is the moat</span></div>
+        <aside class="notes">
+          From module 07 context-architecture. The hot/cold split is the practical discipline that keeps the memory base fast. @-import the hot leaves into CLAUDE.md; leave the cold map in index.md. We show this live in the Aurora repo.
+        </aside>
+      </section>
+
+      <!-- S18 · Three weekly skills > 200 prompts -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Prep Roadmap · delegation patterns</span>
+        <h2>Three weekly skills beat 200 prompts.</h2>
+        <p class="sm">A skill is a reusable, named procedure with a home in the repo. You don't need a prompt library you'll never open — you need a few sharp skills that run your actual weekly work.</p>
+        <div class="row mt"><div class="mark">✦</div><div class="body"><span class="nm">generate-pdp</span><span class="lbl">storefront</span><div class="ln">Draft a product page in Aurora's voice, gated by the quality standard.</div></div></div>
+        <div class="row"><div class="mark">✦</div><div class="body"><span class="nm">weekly-ops-review</span><span class="lbl">command center</span><div class="ln">Pull the week's orders and KPIs into a review the operator can act on.</div></div></div>
+        <div class="row"><div class="mark">✦</div><div class="body"><span class="nm">competitor-scan</span><span class="lbl">research</span><div class="ln">A scheduled read of the field, written into knowledge-base/learnings/.</div></div></div>
+        <aside class="notes">
+          From module 03 delegation-patterns: "three skills beat 200 prompts." These three live in .claude/skills/ in the Aurora repo. Each is a SKILL.md with frontmatter + body. Skills are harness; prompt bundles are theater.
+        </aside>
+      </section>
+
+      <!-- ===================================================================
+           SEGMENT 4 — MISSION DEEP-DIVE  (12 slides, 0:40) — CORE
+           concepts 5, 6, 7 + memory base built live
+           =================================================================== -->
+
+      <!-- S19 · Section opener -->
+      <section class="panel" data-background-color="#1A1A1A">
+        <span class="label kicker">Mission Deep-Dive · the core 30 minutes</span>
+        <p class="display" style="font-size:2.2em;">Now we cook.</p>
+        <p class="sm" style="color:#cfcdc6;">We build a real surface of Aurora — storefront and command center sharing one data layer — on a branch, with an agent team, verified end to end, deployed to a clickable URL. The memory base gets built and written-to while you watch.</p>
+        <div class="concept-row"><span class="concept">agent team</span><span class="concept">closed-loop OS</span><span class="concept">verify before commit</span></div>
+        <aside class="notes">
+          The core of the session. Four live demos ahead (1b, 2a, 2b, 2c). Keep narrating the loop: Context → Plan → Build → Ship. Each demo has a fallback GIF in deck/public/. 60-second stall rule applies throughout.
+        </aside>
+      </section>
+
+      <!-- S20 · LIVE DEMO 1b — scaffold + run in plan mode -->
+      <section data-background-color="#F4F1EA">
+        <span class="demo-badge dot">Live Demo 1b</span>
+        <h2 style="margin-top:0.3em;">Scaffold and run — in plan mode.</h2>
+        <p class="sm">Clone the repo, install, and run it. Then we ask the agent for something — and it writes a plan instead of charging in.</p>
+        <p class="prompt-label">terminal · clone &amp; run</p>
+<pre><code class="language-bash" data-trim data-noescape>
+git clone git@github.com:christian-deeplearner/aurora-commerce.git
+cd aurora-commerce &amp;&amp; pnpm install
+pnpm dev      # Aurora storefront on :3000, command center at /overview
+</code></pre>
+        <p class="fallback">deck/public/demo-1b-scaffold-run.gif</p>
+        <aside class="notes">
+          LIVE DEMO 1b. Show pnpm dev bringing up the storefront and /overview on fake data. This proves the scaffold is real before we touch it. Pre-installed deps in a known-good clone keep this fast. Fallback GIF if install drags.
+        </aside>
+      </section>
+
+      <!-- S21 · Plan-mode discipline (the approval gate) -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · plan mode is the gate</span>
+        <h2>Read the plan. Then you're driving.</h2>
+        <p class="sm">In plan mode the agent writes — in plain English — what it will do, before it does it. You edit. You push back. You approve. <em>Then</em> it builds. Skip the plan and you're a passenger.</p>
+        <p class="prompt-label">claude · a real planning prompt (adapt to Aurora)</p>
+<pre><code class="language-text" data-trim data-noescape>
+I want to redesign the Aurora product page as a single editorial
+column: oversized serif name, one-line story, price, add-to-cart,
+full-bleed image. Use the existing design tokens in globals.css —
+do not invent colors. Plan the change first. List the files you'd
+touch and what you're unsure about. Do not write code yet.
+</code></pre>
+        <div class="card-note sm">The diff is the artifact. You don't have to trust the agent — you verify, line by line, every time.</div>
+        <aside class="notes">
+          Worked prompt adapted from lesson-05-first-session. The agent returns a numbered plan and does NOT execute (it can't, in plan mode). Read it aloud, change one line live to show steering, then approve. This is the move founders skip.
+        </aside>
+      </section>
+
+      <!-- S22 · The verify-before-send checklist -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · concept 7</span>
+        <h2>Four seconds before you press return.</h2>
+        <ol class="sm mt">
+          <li>Read the prompt back — what you <em>wrote</em>, not what you meant.</li>
+          <li>Ask: what would the agent do if it took this literally?</li>
+          <li>If the answer is "exactly what I want," press return.</li>
+          <li>If it's "something I'd have to undo," add the constraint, name the file, scope it — then send.</li>
+        </ol>
+        <p class="label label-accent mt2">Guardrails in the brief, not in your nerves.</p>
+        <aside class="notes">
+          From lesson-05. This is the verification habit at the input side. PUBLIC-CONTENT RULE: keep this as a practical operator habit — "read it back," "watch the diff" — NOT a somatic/embodied practice. Four seconds here saves hours of undo.
+        </aside>
+      </section>
+
+      <!-- S23 · Sub-agents as named staff -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · concept 5</span>
+        <h2>Agents are named staff, not parallel processes.</h2>
+        <p class="sm">A sub-agent is a hire with a job description: outcomes, inputs, what "good" looks like, when to escalate. You hire, calibrate, and retire them like a real team. They live as files in <span class="label-accent">.claude/agents/</span>.</p>
+        <div class="cols mt">
+          <div>
+            <div class="row"><div class="mark">◆</div><div class="body"><span class="nm">director</span><span class="lbl">orchestrates · never codes</span></div></div>
+            <div class="row"><div class="mark">◆</div><div class="body"><span class="nm">cto</span><span class="lbl">stack &amp; standards</span></div></div>
+            <div class="row"><div class="mark">◆</div><div class="body"><span class="nm">fullstack-engineer</span><span class="lbl">builds the surfaces</span></div></div>
+          </div>
+          <div>
+            <div class="row"><div class="mark">◆</div><div class="body"><span class="nm">ui-ux-designer</span><span class="lbl">Aurora design system</span></div></div>
+            <div class="row"><div class="mark">◆</div><div class="body"><span class="nm">qa</span><span class="lbl">Playwright &amp; gates</span></div></div>
+          </div>
+        </div>
+        <p class="label label-accent mt">Use agents to multiply judgment, not replace it.</p>
+        <aside class="notes">
+          From module 04 agent-roster + 05-agents/agent-roster.md. Reframe: not "parallel processes" but "named staff with JDs." Christian remains the final decision-maker; agents recommend, perform, critique, synthesize. Show the actual .md files in .claude/agents/.
+        </aside>
+      </section>
+
+      <!-- S24 · Launch the agent team -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · launch the team</span>
+        <h2>Bring the team online.</h2>
+        <p class="sm">One flag turns sub-agents into a team that can run in parallel under the director.</p>
+        <p class="prompt-label">terminal · enable agent teams</p>
+<pre><code class="language-bash" data-trim data-noescape>
+# Launch Claude Code with the experimental agent-teams flag
+CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
+</code></pre>
+        <p class="prompt-label mt">claude · delegate to the director (named staff, real JDs)</p>
+<pre><code class="language-text" data-trim data-noescape>
+director: read CLAUDE.md and knowledge-base/index.md first. We're
+building the Aurora PDP redesign on a feature branch. Assign
+ui-ux-designer and fullstack-engineer. Hold to the design tokens
+and the pdp-quality-gate standard. Report back with a plan before
+anyone writes code.
+</code></pre>
+        <div class="concept-row"><span class="concept">agent team</span></div>
+        <aside class="notes">
+          Invocation flag from 05-agents/claude-code-agent-teams.md. The director reads the memory base FIRST (context leverage), then delegates. Emphasize: the agents are bounded by CLAUDE.md and the standards — that's the harness doing its job.
+        </aside>
+      </section>
+
+      <!-- S25 · Orchestration patterns -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · orchestration</span>
+        <h2>The director orchestrates. You decide.</h2>
+        <div class="cols mt">
+          <div>
+            <p class="label label-accent">Serial when it's risky</p>
+            <p class="sm muted">Plan and stack decisions go one-at-a-time, reviewed.</p>
+            <p class="label label-accent mt">Parallel when it's safe</p>
+            <p class="sm muted">Independent surfaces (design ∥ data layer) run at once, isolated.</p>
+          </div>
+          <div>
+            <p class="label label-accent">Gates between phases</p>
+            <p class="sm muted">Binary checks: build clean? surfaces render? Only then proceed.</p>
+            <p class="label label-accent mt">Writes back to memory</p>
+            <p class="sm muted">Every decision lands in <span class="label-accent">knowledge-base/decisions/</span> — the base compounds.</p>
+          </div>
+        </div>
+        <div class="concept-row"><span class="concept">closed-loop OS</span><span class="concept">memory base</span></div>
+        <aside class="notes">
+          Mirror the build-webinar workflow's phase/gate shape. The key teaching: the director writes decisions back into knowledge-base/decisions/ as it goes — so the repo attendees clone is already a working, compounding memory base, not an empty template.
+        </aside>
+      </section>
+
+      <!-- S26 · Model economics — single forward-pointer -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · one forward-pointer</span>
+        <h2>Use the best engine, always.</h2>
+        <p class="sm">There's a real P&amp;L to model selection — Opus for planning and hard reasoning, faster models for mechanical work. We won't go deep today; it's a "Future" topic. The point that matters now:</p>
+        <div class="card-note mt">Because your context lives in the memory base, swapping the engine costs you nothing. You point the new chef at the same kitchen.</div>
+        <div class="concept-row"><span class="concept">context is the moat</span></div>
+        <aside class="notes">
+          Deliberately a single slide, not a module — model economics (Opus/Sonnet/Haiku P&L) is too much for 90 minutes. Use it only to reinforce "context is the moat": model swaps are free when your context is sovereign. "Use the best engine, always."
+        </aside>
+      </section>
+
+      <!-- S27 · LIVE DEMO 2a — build a feature on a branch -->
+      <section data-background-color="#F4F1EA">
+        <span class="demo-badge dot">Live Demo 2a</span>
+        <h2 style="margin-top:0.3em;">Build the feature — on a branch.</h2>
+        <p class="sm">Git is not a backup. Git is memory. We work on a branch so every change is legible and reversible.</p>
+        <p class="prompt-label">terminal · branch first</p>
+<pre><code class="language-bash" data-trim data-noescape>
+git checkout -b feat/aurora-pdp-editorial
+</code></pre>
+        <p class="prompt-label mt">claude · approve the plan, then build</p>
+<pre><code class="language-text" data-trim data-noescape>
+The plan looks right. Build it. Keep each commit to one logical
+change. Use the existing tokens and the formatCurrency helper in
+lib/utils.ts. When you're done, show me the diff before we verify.
+</code></pre>
+        <p class="fallback">deck/public/demo-2a-build-feature.gif</p>
+        <aside class="notes">
+          LIVE DEMO 2a. The feature is pre-built on a known-good branch (feat/aurora-pdp-editorial) so the "live" run re-runs a proven prompt. Show the diff at the end — the diff is the artifact. If it stalls, git checkout the finished branch and narrate the GIF. "Git is memory."
+        </aside>
+      </section>
+
+      <!-- S28 · Hooks as guardrails -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · guardrails before keys</span>
+        <h2>Hooks: guardrails the harness enforces.</h2>
+        <p class="sm">A hook is a rule the harness runs <em>around</em> the agent — not a request you hope it honors. Ours blocks a force-push and asks for confirmation before a deploy. Permissions are declarative, not procedural.</p>
+        <p class="prompt-label">.claude/settings.json · PreToolUse guardrail (excerpt)</p>
+<pre><code class="language-json" data-trim data-noescape>
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command",
+            "command": ".claude/hooks/block-force-push.sh" }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+        <div class="concept-row"><span class="concept">harness engineering</span></div>
+        <aside class="notes">
+          Hooks = guardrails in the harness, not in your nerves. The block-force-push / confirm-deploy hook is the "guardrails before keys" demo. Keep it concrete: it's a real file in the repo, it really fires. This is why bounded autonomy is safe.
+        </aside>
+      </section>
+
+      <!-- S29 · Playwright verification added live -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · concept 7 · the verify step made real</span>
+        <h2>Add the verification gate — live.</h2>
+        <p class="sm">The base repo has no Playwright. We add it now. The killer test drives a real <strong>checkout on the storefront</strong>, then asserts the order shows up in the command center's <strong>Orders</strong> and the Overview KPIs increment. Customer action → operator visibility → proven.</p>
+        <p class="prompt-label">claude · add the gate</p>
+<pre><code class="language-text" data-trim data-noescape>
+Add Playwright. Write e2e/storefront-checkout.spec.ts: open a PDP,
+add to cart, complete checkout, then assert the new order appears
+in /orders and the Overview KPIs increased by that order's total.
+Use the seeded fake-data layer. Add a pnpm test:e2e script.
+</code></pre>
+        <div class="concept-row"><span class="concept">verify before commit</span><span class="concept">closed-loop OS</span></div>
+        <aside class="notes">
+          This is where verification lands. Reframe Playwright as the deterministic generate → automated gate → human review pattern. The full-loop test is the payoff of having BOTH surfaces share lib/data-layer/fake. Diagnose → decide → act → verify.
+        </aside>
+      </section>
+
+      <!-- S30 · LIVE DEMO 2b — run test + mobile + PR -->
+      <section data-background-color="#F4F1EA">
+        <span class="demo-badge dot">Live Demo 2b</span>
+        <h2 style="margin-top:0.3em;">Run the test. Check mobile. Open the PR.</h2>
+        <p class="prompt-label">terminal · verify, then propose</p>
+<pre><code class="language-bash" data-trim data-noescape>
+pnpm test:e2e          # storefront-checkout → command-center reflection: green
+git add -A &amp;&amp; git commit -m "feat: editorial Aurora PDP + e2e checkout gate"
+git push -u origin feat/aurora-pdp-editorial
+gh pr create --fill    # the change becomes reviewable
+</code></pre>
+        <p class="prompt-label mt">claude · responsive pass</p>
+<pre><code class="language-text" data-trim data-noescape>
+Check the new PDP at 375px width. Fix any overflow or tap-target
+issues. Keep the editorial layout — single column on mobile.
+</code></pre>
+        <p class="fallback">deck/public/demo-2b-test-mobile-pr.gif</p>
+        <aside class="notes">
+          LIVE DEMO 2b. Green test first — that's the gate. Then mobile pass at 375px. Then the PR. The PR is the unit of review: a human (or the test) signs off. If e2e is slow, the fallback GIF shows the green run. Don't push a red test.
+        </aside>
+      </section>
+
+      <!-- S31 · Harness wiring recap -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Mission Deep-Dive · what we just wired</span>
+        <h2>Everything we touched was harness.</h2>
+        <div class="cols">
+          <div>
+            <div class="row"><div class="mark">▣</div><div class="body"><span class="nm">CLAUDE.md</span><span class="lbl">the recipe card</span></div></div>
+            <div class="row"><div class="mark">▣</div><div class="body"><span class="nm">knowledge-base/</span><span class="lbl">the memory base</span></div></div>
+            <div class="row"><div class="mark">▣</div><div class="body"><span class="nm">.claude/agents/</span><span class="lbl">named staff</span></div></div>
+          </div>
+          <div>
+            <div class="row"><div class="mark">▣</div><div class="body"><span class="nm">.claude/skills/</span><span class="lbl">weekly procedures</span></div></div>
+            <div class="row"><div class="mark">▣</div><div class="body"><span class="nm">hooks</span><span class="lbl">guardrails</span></div></div>
+            <div class="row"><div class="mark">▣</div><div class="body"><span class="nm">e2e/</span><span class="lbl">the gate</span></div></div>
+          </div>
+        </div>
+        <p class="label label-accent mt2">You didn't write a better prompt. You built a better kitchen.</p>
+        <aside class="notes">
+          Recap the harness inventory. Tie it back to the Landscape mental model: none of this is a prompt — it's all the kitchen. This is what makes the same model produce a different order of leverage.
+        </aside>
+      </section>
+
+      <!-- S32 · LIVE DEMO 2c — deploy → review link -->
+      <section data-background-color="#F4F1EA">
+        <span class="demo-badge dot">Live Demo 2c</span>
+        <h2 style="margin-top:0.3em;">Ship it. Done means a link.</h2>
+        <p class="sm">A confirmation hook fires before we deploy — guardrail, not nerves. Done is not "the code exists." Done is a URL someone can click.</p>
+        <p class="prompt-label">terminal · deploy (confirm-hook gated)</p>
+<pre><code class="language-bash" data-trim data-noescape>
+vercel --prod          # PreToolUse confirm-hook asks before shipping
+# → https://aurora-commerce.vercel.app  (the review link)
+</code></pre>
+        <div class="card-note sm">Standard: never report work "done" without a link the decision-maker can click to review. The deployed Aurora URL <em>is</em> that link.</div>
+        <p class="fallback">deck/public/demo-2c-deploy-link.gif</p>
+        <aside class="notes">
+          LIVE DEMO 2c. The confirm-hook fires; approve it on stage. The deploy produces the review link — pair it with the "always include a review link" standard. This closes the loop visibly: Context → Plan → Build → Ship, verified, with a clickable URL.
+        </aside>
+      </section>
+
+      <!-- ===================================================================
+           SEGMENT 5 — THE FUTURE & AGENTIC HARNESSING  (6 slides, 1:10)
+           concepts 1, 6, 7 reprised
+           =================================================================== -->
+
+      <!-- S33 · Section opener -->
+      <section class="panel" data-background-color="#1A1A1A">
+        <span class="label kicker">The Future &amp; Agentic Harnessing</span>
+        <p class="display" style="font-size:2.2em;">From one kitchen to a building.</p>
+        <p class="sm" style="color:#cfcdc6;">Once the harness exists, the work changes shape. You stop typing every move and start running a roster against a legible operating system — with the memory base as the thing that makes it safe.</p>
+        <div class="concept-row"><span class="concept">context is the moat</span><span class="concept">closed-loop OS</span><span class="concept">verify before commit</span></div>
+        <aside class="notes">
+          Pivot from "I built one feature" to "this is how the operating model scales." Keep it grounded and honest — no breathless future-talk. The future is just more turns of the same loop against a bigger memory base.
+        </aside>
+      </section>
+
+      <!-- S34 · Roster-driven building -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Future · roster-driven building</span>
+        <h2>Build with a roster, not a chat box.</h2>
+        <p class="sm">The next move isn't a smarter prompt — it's a fuller team and a sharper operating doc. As the roster grows, your job shifts from <em>doing</em> to <em>directing</em>: writing JDs, setting standards, reviewing gates.</p>
+        <div class="card-note mt">Most AI courses teach prompts. We teach a way of being. The prompt is the smallest part of the system you're now running.</div>
+        <div class="concept-row"><span class="concept">agent team</span></div>
+        <aside class="notes">
+          "Most AI courses teach prompts. We teach a way of being." The shift is from operator-as-typist to operator-as-director. The roster + the memory base are the durable assets; the prompts are disposable.
+        </aside>
+      </section>
+
+      <!-- S35 · Ship + hand off -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Future · concept 7 reprised</span>
+        <h2>Shipping is waiting for the reply.</h2>
+        <p>Shipping isn't a URL existing on the internet. Shipping is sending it to someone — and <em>waiting for the reply</em>. The review link is how the loop actually closes: the work goes to a human, comes back judged, and the next turn begins.</p>
+        <p class="label label-accent mt2">Done beats perfect.</p>
+        <aside class="notes">
+          From lesson-06-ship-it. The loop doesn't close at deploy — it closes at the reply. This is why "always include a review link" matters: it's the handle the next human grabs. Honest about limits: the agent can't judge taste; a person does.
+        </aside>
+      </section>
+
+      <!-- S36 · THE META-REVEAL -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-accent kicker">Future · the meta-reveal</span>
+        <h2>This was built by the method it teaches.</h2>
+        <p class="sm">Open the receipts, live:</p>
+        <p class="prompt-label">terminal · the receipts</p>
+<pre><code class="language-bash" data-trim data-noescape>
+# The team-run log: who did what, this week
+cat team-runs/2026-06-*-webinar-build.md
+
+# The decisions the team wrote back into the memory base
+ls knowledge-base/decisions/
+
+# The Workflow that orchestrated the whole build
+cat workflows/build-webinar.md
+</code></pre>
+        <div class="card-note sm">The repo you cloned is already a working, compounding memory base — every decision from this build is written into <span class="label-accent">knowledge-base/decisions/</span>. Not an empty template. A live operating system.</div>
+        <aside class="notes">
+          THE META-REVEAL. Open the team-run log, the decisions dir, and the build-webinar workflow on stage. This is the payoff of the promise from slide 2. The recursion is the proof: the deck, the scaffold, and the verification were produced by exactly the method just taught.
+        </aside>
+      </section>
+
+      <!-- S37 · MOTIF REPRISE + honest audit -->
+      <section class="motif" data-background-color="#1A1A1A">
+        <span class="label kicker">The line, one more time</span>
+        <p class="display" style="font-size:2.3em;">The model is not the moat.<br/>Your context is.</p>
+        <hr class="hairline" style="border-top-color:#3a3a3a; width:40%;" />
+        <p class="sm" style="color:#cfcdc6;">Honest audit: a new model will ship and beat today's. When it does, you lose nothing — you point it at the same kitchen. <em>Build the lemonade stand. Hand people the recipe. Ask if it tastes good.</em> Start small, prove the loop, let it compound.</p>
+        <div class="concept-row"><span class="concept">context is the moat</span><span class="concept">memory base</span></div>
+        <aside class="notes">
+          Motif reprise + the "build the lemonade stand" anti-hype close. Be honest: the model WILL be beaten; that's the point — the context is what carries forward. End on "start small, prove the loop." Non-somatic, operator-grounded.
+        </aside>
+      </section>
+
+      <!-- ===================================================================
+           SEGMENT 6 — Q&A  (2 slides, 1:25)
+           =================================================================== -->
+
+      <!-- S38 · Take-home -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Take-home</span>
+        <h2>Two missions. One weekend.</h2>
+        <div class="cols mt">
+          <div class="card-note">
+            <p class="label label-accent">Tonight — Mission 1</p>
+            <p class="sm">Clone the repo. Set up the kitchen: nvm, SSH, Claude Code, Context7. Get <span class="label-accent">pnpm dev</span> running. One evening.</p>
+          </div>
+          <div class="card-note">
+            <p class="label label-accent">This weekend — Mission 2</p>
+            <p class="sm">Build one Aurora surface on a branch with the agent team. Add a Playwright test. Open a PR. Deploy. Send the link.</p>
+          </div>
+        </div>
+        <p class="prompt-label mt">terminal · start now</p>
+<pre><code class="language-bash" data-trim data-noescape>
+git clone git@github.com:christian-deeplearner/aurora-commerce.git
+cd aurora-commerce &amp;&amp; pnpm install &amp;&amp; pnpm dev
+</code></pre>
+        <aside class="notes">
+          Concrete take-home, scoped to one evening + one weekend. The repo is the artifact — they leave with it, not with slides. Mission 1 tonight (the kitchen), Mission 2 this weekend (one surface, verified, shipped).
+        </aside>
+      </section>
+
+      <!-- S39 · Q&A / exit -->
+      <section data-background-color="#F4F1EA">
+        <span class="label label-muted kicker">Questions</span>
+        <h1 class="display" style="font-size:3em;">Let's build.</h1>
+        <hr class="hairline" />
+        <div class="cols mt">
+          <div>
+            <p class="sm">Ask me anything — the demos, the repo, where this breaks, how to start on your own business this week.</p>
+            <p class="label label-accent mt">Use the best engine, always. Done beats perfect.</p>
+          </div>
+          <div class="center">
+            <div class="qr">QR<br/>clone + deck</div>
+            <p class="xs muted" style="margin-top:0.5em;">github.com/christian-deeplearner/aurora-commerce</p>
+          </div>
+        </div>
+        <aside class="notes">
+          Open the floor. Keep the repo QR visible for the whole Q&A so people can clone while they listen. End on the two verbatim lines. If asked "does this really work?" — the answer is the repo they're holding.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- reveal.js core + plugins (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,            // shareable per-slide URLs
+      slideNumber: true,     // "12 / 39" bottom-right
+      history: false,
+      controls: true,
+      progress: true,
+      center: false,         // top-aligned, editorial layout
+      transition: 'fade',    // calm, premium — no flashy slides
+      transitionSpeed: 'default',
+      width: 1280,
+      height: 800,
+      margin: 0.08,
+      plugins: [ RevealNotes, RevealHighlight, RevealMarkdown ]
+    });
+
+    // Recursive nod: pull a live repo metric onto the title slide at render.
+    // Best-effort; silently no-ops offline so the deck always renders.
+    (function () {
+      var slot = document.querySelector('[data-repo-metric]');
+      if (!slot) return;
+      fetch('https://api.github.com/repos/christian-deeplearner/aurora-commerce')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (d && typeof d.open_issues_count === 'number') {
+            slot.textContent = '★ ' + (d.stargazers_count || 0) + ' · last push ' +
+              (d.pushed_at ? d.pushed_at.slice(0, 10) : '—');
+          }
+        })
+        .catch(function () { /* offline: leave default */ });
+    })();
+  </script>
+</body>
+</html>

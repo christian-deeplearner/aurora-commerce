@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aurora
 
-## Getting Started
+**A House of Light.** A fictional editorial-luxury DTC commerce app — a customer-facing **storefront** and an operator **command center** over one deterministic fake-data layer.
 
-First, run the development server:
+Aurora is a teaching artifact. It was built by a Claude Code **agent team** for the "How to Become a 100x Engineer" webinar, and it ships with the thing it teaches: a working **memory base** (`knowledge-base/`) and a real **harness** (`.claude/`). Nothing here is real — Aurora sells fictional goods, the data is seeded with faker, and the whole repo is safe to read on a screen.
+
+> The model is not the moat. Your context is.
+
+---
+
+## The meta-story
+
+This repo, and the deck that presents it, were built by the method they teach. A named agent team — a director who orchestrates and never codes, plus engineers, a designer, and QA — ran the **Context → Plan → Build → Ship** loop, read the memory base before acting, wrote its decisions back into `knowledge-base/decisions/`, and verified every surface with Playwright before calling it done. The repo you clone is therefore not an empty template. It is a memory base that already compounded.
+
+If you want to see how, read `workflows/build-webinar.md` and `knowledge-base/decisions/`.
+
+---
+
+## Two missions
+
+### Mission 1 — Clone + run
+Get an AI-native command center on your machine and see Aurora running locally.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Storefront: <http://localhost:3000>
+- Command center: <http://localhost:3000/overview>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Both surfaces render on seeded fake data. Regenerate the fixtures any time — deterministically — with `pnpm seed`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Mission 2 — Build a surface with an agent team, then verify it
+Open Claude Code with agent teams enabled, point the team at a brief, and build a real surface — a collection page, a PDP, a command-center view. Then prove it works with Playwright before you call it done.
 
-## Learn More
+```bash
+# enable the experimental agent team
+CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude
 
-To learn more about Next.js, take a look at the following resources:
+# verify the change end-to-end
+pnpm test:e2e
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The killer test (`e2e/storefront-checkout.spec.ts`) drives a checkout on the storefront, then asserts the order appears in the command center's Orders view and the Overview KPIs update — customer action → operator visibility → verified end-to-end.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## How to run
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Step | Command |
+|---|---|
+| Install | `pnpm install` |
+| Dev (both surfaces) | `pnpm dev` |
+| Production build | `pnpm build` |
+| Regenerate fixtures (deterministic) | `pnpm seed` |
+| Lint | `pnpm lint` |
+| End-to-end tests | `pnpm test:e2e` *(added during Mission 2)* |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Requires Node (use `nvm`) and `pnpm`.
+
+---
+
+## What's in here
+
+```
+CLAUDE.md            # the company operating doc — read this first
+knowledge-base/      # the memory base: voice, customer, standards, decisions, learnings
+.claude/             # the harness: agents (named staff), skills, commands, settings + hooks
+workflows/           # sequence + gate workflows (incl. build-webinar.md — the meta-artifact)
+src/                 # the Next.js app (storefront + command center) and shared lib
+```
+
+Start with **`CLAUDE.md`**. It is the operating doc the agents read before they do anything — and the clearest map of how Aurora works.
+
+---
+
+## A note on what this is and isn't
+
+- **Fictional.** Aurora is invented. No real brand, no real customer data, no real products.
+- **Deterministic.** Faker is seeded, so the demo is the same every run.
+- **Honest about limits.** The value here isn't "autonomous agents." The value is that the workflow has a home — a memory base agents read, standards they verify against, and a review link at the end so a human can always click and check.

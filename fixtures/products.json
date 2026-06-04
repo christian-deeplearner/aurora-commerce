@@ -1,0 +1,793 @@
+[
+  {
+    "id": "prd_dyql552v",
+    "slug": "daybreak-overshirt",
+    "name": "Daybreak Overshirt",
+    "collectionSlug": "halo",
+    "priceCents": 19900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-daybreak-overshirt-1/900/1200",
+      "https://picsum.photos/seed/aurora-daybreak-overshirt-2/900/1200",
+      "https://picsum.photos/seed/aurora-daybreak-overshirt-3/900/1200"
+    ],
+    "description": "An unstructured overshirt in brushed organic cotton. Holds its shape by holding its breath.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 214
+  },
+  {
+    "id": "prd_t766aifa",
+    "slug": "first-light-trouser",
+    "name": "First Light Trouser",
+    "collectionSlug": "halo",
+    "priceCents": 16900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-first-light-trouser-1/900/1200",
+      "https://picsum.photos/seed/aurora-first-light-trouser-2/900/1200"
+    ],
+    "description": "A soft, high-rise trouser with a drawn waist. Tailoring that forgives the morning.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 80
+  },
+  {
+    "id": "prd_gs7il1l6",
+    "slug": "cloud-knit-crew",
+    "name": "Cloud Knit Crew",
+    "collectionSlug": "halo",
+    "priceCents": 11900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-cloud-knit-crew-1/900/1200",
+      "https://picsum.photos/seed/aurora-cloud-knit-crew-2/900/1200",
+      "https://picsum.photos/seed/aurora-cloud-knit-crew-3/900/1200"
+    ],
+    "description": "Featherweight merino, knit loose. The sweater you forget you are wearing.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "archived",
+    "inventory": 10
+  },
+  {
+    "id": "prd_a3of4h1w",
+    "slug": "veil-cotton-tee",
+    "name": "Veil Cotton Tee",
+    "collectionSlug": "halo",
+    "priceCents": 8900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-veil-cotton-tee-1/900/1200",
+      "https://picsum.photos/seed/aurora-veil-cotton-tee-2/900/1200",
+      "https://picsum.photos/seed/aurora-veil-cotton-tee-3/900/1200"
+    ],
+    "description": "A near-translucent jersey tee. The first layer, and sometimes the only one.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 114
+  },
+  {
+    "id": "prd_j6yrxwlx",
+    "slug": "bone-linen-shirt",
+    "name": "Bone Linen Shirt",
+    "collectionSlug": "halo",
+    "priceCents": 13900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-bone-linen-shirt-1/900/1200",
+      "https://picsum.photos/seed/aurora-bone-linen-shirt-2/900/1200"
+    ],
+    "description": "Washed linen in warm bone. Crumples on purpose.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 71
+  },
+  {
+    "id": "prd_d9tcaj5s",
+    "slug": "halo-sleep-set",
+    "name": "Halo Sleep Set",
+    "collectionSlug": "halo",
+    "priceCents": 12900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-halo-sleep-set-1/900/1200",
+      "https://picsum.photos/seed/aurora-halo-sleep-set-2/900/1200",
+      "https://picsum.photos/seed/aurora-halo-sleep-set-3/900/1200"
+    ],
+    "description": "A two-piece in silk-finish cotton. For the soft hours at either end of the day.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 43
+  },
+  {
+    "id": "prd_0tpqr2c4",
+    "slug": "dusk-wool-coat",
+    "name": "Dusk Wool Coat",
+    "collectionSlug": "umbra",
+    "priceCents": 46900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-dusk-wool-coat-1/900/1200",
+      "https://picsum.photos/seed/aurora-dusk-wool-coat-2/900/1200",
+      "https://picsum.photos/seed/aurora-dusk-wool-coat-3/900/1200"
+    ],
+    "description": "A long, single-breasted coat in compacted wool. Cut for the hours after the light goes.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 14
+  },
+  {
+    "id": "prd_bbqmvg4p",
+    "slug": "indigo-field-jacket",
+    "name": "Indigo Field Jacket",
+    "collectionSlug": "umbra",
+    "priceCents": 30900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-indigo-field-jacket-1/900/1200",
+      "https://picsum.photos/seed/aurora-indigo-field-jacket-2/900/1200",
+      "https://picsum.photos/seed/aurora-indigo-field-jacket-3/900/1200"
+    ],
+    "description": "Rope-dyed indigo that deepens with wear. A jacket that keeps its own record.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 109
+  },
+  {
+    "id": "prd_if031mbi",
+    "slug": "charcoal-pleat-trouser",
+    "name": "Charcoal Pleat Trouser",
+    "collectionSlug": "umbra",
+    "priceCents": 21900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-charcoal-pleat-trouser-1/900/1200",
+      "https://picsum.photos/seed/aurora-charcoal-pleat-trouser-2/900/1200"
+    ],
+    "description": "A heavier wool trouser with a single deep pleat. Weight you can lean on.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 166
+  },
+  {
+    "id": "prd_82a5xtmv",
+    "slug": "nightfall-roll-neck",
+    "name": "Nightfall Roll-Neck",
+    "collectionSlug": "umbra",
+    "priceCents": 18900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-nightfall-roll-neck-1/900/1200",
+      "https://picsum.photos/seed/aurora-nightfall-roll-neck-2/900/1200"
+    ],
+    "description": "Dense lambswool, knit close to the throat. Shadow as material.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "coming-soon",
+    "inventory": 7
+  },
+  {
+    "id": "prd_twb38ftu",
+    "slug": "eclipse-leather-belt",
+    "name": "Eclipse Leather Belt",
+    "collectionSlug": "umbra",
+    "priceCents": 8900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-eclipse-leather-belt-1/900/1200",
+      "https://picsum.photos/seed/aurora-eclipse-leather-belt-2/900/1200",
+      "https://picsum.photos/seed/aurora-eclipse-leather-belt-3/900/1200"
+    ],
+    "description": "Vegetable-tanned leather, blackened by hand. Ages toward the light.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 49
+  },
+  {
+    "id": "prd_4cxbipdy",
+    "slug": "umbra-cashmere-scarf",
+    "name": "Umbra Cashmere Scarf",
+    "collectionSlug": "umbra",
+    "priceCents": 18900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-umbra-cashmere-scarf-1/900/1200",
+      "https://picsum.photos/seed/aurora-umbra-cashmere-scarf-2/900/1200"
+    ],
+    "description": "A double-faced cashmere scarf in two depths of grey.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 66
+  },
+  {
+    "id": "prd_a1li1aw8",
+    "slug": "open-weave-shirt",
+    "name": "Open Weave Shirt",
+    "collectionSlug": "solstice",
+    "priceCents": 12900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-open-weave-shirt-1/900/1200",
+      "https://picsum.photos/seed/aurora-open-weave-shirt-2/900/1200"
+    ],
+    "description": "A loosely woven cotton-linen with the sun built in. Breathes before you do.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "archived",
+    "inventory": 3
+  },
+  {
+    "id": "prd_or8qdmmj",
+    "slug": "sun-bleached-short",
+    "name": "Sun-Bleached Short",
+    "collectionSlug": "solstice",
+    "priceCents": 8900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-sun-bleached-short-1/900/1200",
+      "https://picsum.photos/seed/aurora-sun-bleached-short-2/900/1200",
+      "https://picsum.photos/seed/aurora-sun-bleached-short-3/900/1200"
+    ],
+    "description": "A relaxed pull-on short in faded canvas. The color of a long afternoon.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 41
+  },
+  {
+    "id": "prd_1lo0i8n6",
+    "slug": "noon-camp-collar",
+    "name": "Noon Camp Collar",
+    "collectionSlug": "solstice",
+    "priceCents": 15900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-noon-camp-collar-1/900/1200",
+      "https://picsum.photos/seed/aurora-noon-camp-collar-2/900/1200"
+    ],
+    "description": "A camp-collar shirt cut wide and easy. Made for the year's high noon.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "coming-soon",
+    "inventory": 1
+  },
+  {
+    "id": "prd_c4xv9ntj",
+    "slug": "meadow-bucket-hat",
+    "name": "Meadow Bucket Hat",
+    "collectionSlug": "solstice",
+    "priceCents": 7900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-meadow-bucket-hat-1/900/1200",
+      "https://picsum.photos/seed/aurora-meadow-bucket-hat-2/900/1200"
+    ],
+    "description": "A packable bucket hat in washed twill. Shade you can fold.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 198
+  },
+  {
+    "id": "prd_wmccqwvs",
+    "slug": "sandline-espadrille",
+    "name": "Sandline Espadrille",
+    "collectionSlug": "solstice",
+    "priceCents": 13900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-sandline-espadrille-1/900/1200",
+      "https://picsum.photos/seed/aurora-sandline-espadrille-2/900/1200"
+    ],
+    "description": "A jute-soled slip-on in raw cotton. For floors that are mostly outdoors.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 198
+  },
+  {
+    "id": "prd_l03n05jo",
+    "slug": "daylight-tote",
+    "name": "Daylight Tote",
+    "collectionSlug": "solstice",
+    "priceCents": 12900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-daylight-tote-1/900/1200",
+      "https://picsum.photos/seed/aurora-daylight-tote-2/900/1200"
+    ],
+    "description": "An oversized market tote in heavy natural canvas. Carries the whole afternoon.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 52
+  },
+  {
+    "id": "prd_bqnunk3d",
+    "slug": "iridescent-shell-jacket",
+    "name": "Iridescent Shell Jacket",
+    "collectionSlug": "aurora",
+    "priceCents": 36900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-iridescent-shell-jacket-1/900/1200",
+      "https://picsum.photos/seed/aurora-iridescent-shell-jacket-2/900/1200"
+    ],
+    "description": "A featherlight shell with an oil-slick finish. Color that arrives without warning.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "archived",
+    "inventory": 5
+  },
+  {
+    "id": "prd_wmsikh7q",
+    "slug": "gradient-silk-dress",
+    "name": "Gradient Silk Dress",
+    "collectionSlug": "aurora",
+    "priceCents": 30900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-gradient-silk-dress-1/900/1200",
+      "https://picsum.photos/seed/aurora-gradient-silk-dress-2/900/1200"
+    ],
+    "description": "Hand-dyed silk that moves from dawn to dusk down its length. A statement that shifts with the room.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 39
+  },
+  {
+    "id": "prd_xywd0xfy",
+    "slug": "prism-knit-sweater",
+    "name": "Prism Knit Sweater",
+    "collectionSlug": "aurora",
+    "priceCents": 24900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-prism-knit-sweater-1/900/1200",
+      "https://picsum.photos/seed/aurora-prism-knit-sweater-2/900/1200",
+      "https://picsum.photos/seed/aurora-prism-knit-sweater-3/900/1200"
+    ],
+    "description": "Space-dyed yarn knit into a slow spectrum. No two are quite alike.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 85
+  },
+  {
+    "id": "prd_ub6kxpk3",
+    "slug": "spectra-wide-trouser",
+    "name": "Spectra Wide Trouser",
+    "collectionSlug": "aurora",
+    "priceCents": 20900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-spectra-wide-trouser-1/900/1200",
+      "https://picsum.photos/seed/aurora-spectra-wide-trouser-2/900/1200",
+      "https://picsum.photos/seed/aurora-spectra-wide-trouser-3/900/1200"
+    ],
+    "description": "A fluid wide-leg in iridescent twill. Catches light at the hem.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 114
+  },
+  {
+    "id": "prd_vqppcatt",
+    "slug": "borealis-scarf",
+    "name": "Borealis Scarf",
+    "collectionSlug": "aurora",
+    "priceCents": 16900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-borealis-scarf-1/900/1200",
+      "https://picsum.photos/seed/aurora-borealis-scarf-2/900/1200",
+      "https://picsum.photos/seed/aurora-borealis-scarf-3/900/1200"
+    ],
+    "description": "A gradient modal scarf, dawn at one end and deep night at the other.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 110
+  },
+  {
+    "id": "prd_snpswcd3",
+    "slug": "refraction-sunglasses",
+    "name": "Refraction Sunglasses",
+    "collectionSlug": "aurora",
+    "priceCents": 18900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-refraction-sunglasses-1/900/1200",
+      "https://picsum.photos/seed/aurora-refraction-sunglasses-2/900/1200"
+    ],
+    "description": "Acetate frames with a faint mirrored bloom. The world, slightly warmer.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 119
+  },
+  {
+    "id": "prd_al11tc4i",
+    "slug": "transit-tech-blazer",
+    "name": "Transit Tech Blazer",
+    "collectionSlug": "meridian",
+    "priceCents": 34900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-transit-tech-blazer-1/900/1200",
+      "https://picsum.photos/seed/aurora-transit-tech-blazer-2/900/1200"
+    ],
+    "description": "A wrinkle-easy technical blazer that packs flat and arrives ready. Meridian moves.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 18
+  },
+  {
+    "id": "prd_1jjmqzib",
+    "slug": "course-modular-vest",
+    "name": "Course Modular Vest",
+    "collectionSlug": "meridian",
+    "priceCents": 22900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-course-modular-vest-1/900/1200",
+      "https://picsum.photos/seed/aurora-course-modular-vest-2/900/1200"
+    ],
+    "description": "A layering vest with hidden capacity. A line drawn through the noise.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 17
+  },
+  {
+    "id": "prd_0yupe659",
+    "slug": "longitude-travel-pant",
+    "name": "Longitude Travel Pant",
+    "collectionSlug": "meridian",
+    "priceCents": 18900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-longitude-travel-pant-1/900/1200",
+      "https://picsum.photos/seed/aurora-longitude-travel-pant-2/900/1200",
+      "https://picsum.photos/seed/aurora-longitude-travel-pant-3/900/1200"
+    ],
+    "description": "A four-way-stretch trouser that reads as tailoring and packs as nothing.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "active",
+    "inventory": 61
+  },
+  {
+    "id": "prd_yqjmf8cr",
+    "slug": "compass-crossbody",
+    "name": "Compass Crossbody",
+    "collectionSlug": "meridian",
+    "priceCents": 11900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-compass-crossbody-1/900/1200",
+      "https://picsum.photos/seed/aurora-compass-crossbody-2/900/1200"
+    ],
+    "description": "A slim, body-mapped crossbody for the documents that matter.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 9
+  },
+  {
+    "id": "prd_uph3hh6f",
+    "slug": "bearing-weekender",
+    "name": "Bearing Weekender",
+    "collectionSlug": "meridian",
+    "priceCents": 24900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-bearing-weekender-1/900/1200",
+      "https://picsum.photos/seed/aurora-bearing-weekender-2/900/1200",
+      "https://picsum.photos/seed/aurora-bearing-weekender-3/900/1200"
+    ],
+    "description": "A structured weekender in coated canvas. Two days, one bag.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 10
+  },
+  {
+    "id": "prd_dmiun52n",
+    "slug": "waypoint-rain-shell",
+    "name": "Waypoint Rain Shell",
+    "collectionSlug": "meridian",
+    "priceCents": 23900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-waypoint-rain-shell-1/900/1200",
+      "https://picsum.photos/seed/aurora-waypoint-rain-shell-2/900/1200",
+      "https://picsum.photos/seed/aurora-waypoint-rain-shell-3/900/1200"
+    ],
+    "description": "A seam-sealed shell that folds into its own pocket. For the unscheduled weather.",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "status": "coming-soon",
+    "inventory": 7
+  },
+  {
+    "id": "prd_dngjxdyw",
+    "slug": "ember-ceramic-vessel",
+    "name": "Ember Ceramic Vessel",
+    "collectionSlug": "lumen",
+    "priceCents": 8900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-ember-ceramic-vessel-1/900/1200",
+      "https://picsum.photos/seed/aurora-ember-ceramic-vessel-2/900/1200"
+    ],
+    "description": "A hand-thrown stoneware vessel with a warm reactive glaze. The smallest unit of light.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 4
+  },
+  {
+    "id": "prd_3o2bu0ta",
+    "slug": "halo-tealight-set",
+    "name": "Halo Tealight Set",
+    "collectionSlug": "lumen",
+    "priceCents": 5900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-halo-tealight-set-1/900/1200",
+      "https://picsum.photos/seed/aurora-halo-tealight-set-2/900/1200",
+      "https://picsum.photos/seed/aurora-halo-tealight-set-3/900/1200"
+    ],
+    "description": "A set of three pressed-beeswax tealights. Measured in small radiances.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 193
+  },
+  {
+    "id": "prd_qsa6rtze",
+    "slug": "glow-hardware-tray",
+    "name": "Glow Hardware Tray",
+    "collectionSlug": "lumen",
+    "priceCents": 9900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-glow-hardware-tray-1/900/1200",
+      "https://picsum.photos/seed/aurora-glow-hardware-tray-2/900/1200",
+      "https://picsum.photos/seed/aurora-glow-hardware-tray-3/900/1200"
+    ],
+    "description": "A brushed-brass catch-all for the day's small metals.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 205
+  },
+  {
+    "id": "prd_ufrr3wit",
+    "slug": "wick-bloom-candle",
+    "name": "Wick & Bloom Candle",
+    "collectionSlug": "lumen",
+    "priceCents": 7900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-wick-bloom-candle-1/900/1200",
+      "https://picsum.photos/seed/aurora-wick-bloom-candle-2/900/1200",
+      "https://picsum.photos/seed/aurora-wick-bloom-candle-3/900/1200"
+    ],
+    "description": "A poured soy candle in fig and warm cedar. A room, finished.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 2
+  },
+  {
+    "id": "prd_w3byykmg",
+    "slug": "facet-drinking-glasses",
+    "name": "Facet Drinking Glasses",
+    "collectionSlug": "lumen",
+    "priceCents": 8900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-facet-drinking-glasses-1/900/1200",
+      "https://picsum.photos/seed/aurora-facet-drinking-glasses-2/900/1200"
+    ],
+    "description": "A pair of hand-cut glasses that scatter the evening light.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 166
+  },
+  {
+    "id": "prd_ss3h2jfv",
+    "slug": "lantern-carry-pouch",
+    "name": "Lantern Carry Pouch",
+    "collectionSlug": "lumen",
+    "priceCents": 9900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-lantern-carry-pouch-1/900/1200",
+      "https://picsum.photos/seed/aurora-lantern-carry-pouch-2/900/1200"
+    ],
+    "description": "A soft leather pouch for cords, keys, and small certainties.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 168
+  },
+  {
+    "id": "prd_m33p2tp2",
+    "slug": "daylamp-mirror",
+    "name": "Daylamp Mirror",
+    "collectionSlug": "lumen",
+    "priceCents": 13900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-daylamp-mirror-1/900/1200",
+      "https://picsum.photos/seed/aurora-daylamp-mirror-2/900/1200",
+      "https://picsum.photos/seed/aurora-daylamp-mirror-3/900/1200"
+    ],
+    "description": "A round desk mirror with a warm bezel. Brings the window to you.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 81
+  },
+  {
+    "id": "prd_tyzrd3rk",
+    "slug": "quartz-incense-holder",
+    "name": "Quartz Incense Holder",
+    "collectionSlug": "lumen",
+    "priceCents": 6900,
+    "currency": "USD",
+    "images": [
+      "https://picsum.photos/seed/aurora-quartz-incense-holder-1/900/1200",
+      "https://picsum.photos/seed/aurora-quartz-incense-holder-2/900/1200",
+      "https://picsum.photos/seed/aurora-quartz-incense-holder-3/900/1200"
+    ],
+    "description": "A raw quartz holder for a single stick of smoke.",
+    "sizes": [
+      "OS"
+    ],
+    "status": "active",
+    "inventory": 108
+  }
+]
