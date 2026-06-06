@@ -4,8 +4,11 @@ import { defineConfig, devices } from "@playwright/test";
 // the whole suite shares a single in-memory world (a storefront checkout that
 // `createOrder()`s into globalThis must be visible to the command center within
 // the same process — see src/lib/data-layer/fake/store.ts).
+//
+// PLAYWRIGHT_BASE_URL — override to smoke-test a deployed URL (e.g. a Vercel
+// preview). When set, no local dev server is started; use prod-smoke.spec.ts.
 const PORT = 3000;
-const BASE_URL = `http://localhost:${PORT}`;
+const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? `http://localhost:${PORT}`;
 
 export default defineConfig({
   testDir: "./e2e",
@@ -31,12 +34,14 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
   ],
-  webServer: {
-    command: "pnpm dev",
-    url: BASE_URL,
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-    stdout: "pipe",
-    stderr: "pipe",
-  },
+  webServer: process.env.PLAYWRIGHT_BASE_URL
+    ? undefined
+    : {
+        command: "pnpm dev",
+        url: BASE_URL,
+        reuseExistingServer: !process.env.CI,
+        timeout: 120_000,
+        stdout: "pipe",
+        stderr: "pipe",
+      },
 });
