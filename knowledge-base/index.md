@@ -33,11 +33,15 @@
 | File | What it is |
 |---|---|
 | `decisions/2026-06-03-aurora-scaffold-initialized.md` | Baseline architecture + locked choices |
+| `decisions/2026-06-06-deploy-to-vercel.md` | Went live on Vercel (public): URL, gates passed, accepted serverless caveat |
 
 ### learnings/ — what we've learned, dated and atomic
 | File | What it is |
 |---|---|
 | `learnings/2026-06-03-fake-data-seam-keeps-the-demo-honest.md` | Why all data flows through one seam |
+| `learnings/2026-06-06-in-memory-seam-resets-on-serverless.md` | The seam's serverless edge case: fresh state doesn't persist across cold starts |
+| `learnings/2026-06-06-verifying-a-live-deploy-when-the-loop-test-is-local.md` | Verify prod with a read-only smoke (`PLAYWRIGHT_BASE_URL`), not the full loop |
+| `learnings/2026-06-06-reused-dev-server-can-test-stale-code.md` | `reuseExistingServer` gotcha: a stale :3000 server fails the gate on ghost code |
 
 ## Conventions for this base
 
