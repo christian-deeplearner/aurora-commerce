@@ -6,7 +6,7 @@ This file is the reveal. The webinar "How to Become a 100x Engineer" teaches a m
 
 ## What was built
 - **`aurora-commerce`** — this repo: an Aurora storefront + an operator command center over one deterministic fake-data seam.
-- **`deck/`** — the reveal.js workshop deck (~39 slides) that presents it.
+- **`deck/`** — the reveal.js workshop deck (~34 slides) that presents it. Re-sequenced **theory-first** (harness engineering → concepts → practice → close) by the Aurora agent team via `workflows/redesign-deck.md`; see `knowledge-base/decisions/2026-06-05-deck-reworked-theory-first.md`.
 - **The harness** — `CLAUDE.md`, `knowledge-base/` (the memory base), `.claude/agents` (the team), `.claude/skills`, `.claude/commands`, `.claude/settings.json` (hooks), and these `workflows/`.
 
 ## How it was built (the real run)
