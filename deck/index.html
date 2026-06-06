@@ -23,10 +23,10 @@
     .reveal .slides { text-align: left; }
     .reveal .slides section { padding: 10px 40px; }
 
-    .reveal h1, .reveal h2 { font-family: var(--serif); font-weight: 400; color: var(--ink); text-transform: none; letter-spacing: -0.015em; line-height: 1.0; margin: 0 0 0.35em; }
+    .reveal h1, .reveal h2 { font-family: var(--serif); font-weight: 400; color: var(--ink); text-transform: none; letter-spacing: -0.015em; line-height: 1.0; margin: 0 0 0.3em; }
     .reveal h1 { font-size: 3.2em; }
-    .reveal h2 { font-size: 2.2em; }
-    .reveal p { line-height: 1.5; margin: 0.5em 0; }
+    .reveal h2 { font-size: 2.1em; }
+    .reveal p { line-height: 1.5; margin: 0.45em 0; }
     .reveal em { font-style: italic; color: var(--accent); }
     .reveal strong { font-weight: 500; }
     .reveal a { color: var(--accent); }
@@ -35,20 +35,30 @@
     .label.accent { color: var(--accent); }
     .lead { font-family: var(--serif); font-size: 1.5em; line-height: 1.2; }
     .muted { color: var(--muted); }
-    .big { font-family: var(--serif); font-size: 2.6em; line-height: 1.05; }
-    hr { border: 0; border-top: 1px solid var(--hairline); margin: 0.7em 0; }
+    .big { font-family: var(--serif); font-size: 2.5em; line-height: 1.05; }
+    .punch { font-family: var(--serif); font-size: 1.3em; line-height: 1.2; color: var(--ink); margin-top: 0.55em; }
+    .punch em { color: var(--accent); }
+    hr { border: 0; border-top: 1px solid var(--hairline); margin: 0.6em 0; }
 
-    /* the four-move loop */
-    .loop { margin-top: 0.6em; }
-    .loop .step { display: grid; grid-template-columns: 1.4em 7.5em 1fr; gap: 0.8em; align-items: baseline; padding: 0.5em 0; border-top: 1px solid var(--hairline); }
+    /* numbered rows (the loop, the setup, the flywheel) */
+    .loop { margin-top: 0.5em; }
+    .loop .step { display: grid; grid-template-columns: 1.4em 7.5em 1fr; gap: 0.8em; align-items: baseline; padding: 0.45em 0; border-top: 1px solid var(--hairline); }
     .loop .step:last-child { border-bottom: 1px solid var(--hairline); }
     .loop .n { font-family: var(--mono); color: var(--accent); font-size: 0.7em; }
     .loop .k { font-family: var(--serif); font-size: 1.15em; }
     .loop .v { color: var(--muted); font-size: 0.78em; align-self: center; }
 
+    /* team roster */
+    .team { margin-top: 0.4em; }
+    .team .m { display: grid; grid-template-columns: 11.5em 1fr; gap: 1.1em; align-items: baseline; padding: 0.38em 0; border-top: 1px solid var(--hairline); }
+    .team .m:last-child { border-bottom: 1px solid var(--hairline); }
+    .team .nm { font-family: var(--mono); color: var(--accent); font-size: 0.72em; }
+    .team .ro { font-size: 0.8em; }
+    .team .ro .x { color: var(--muted); }
+
     /* prompt + terminal cards */
     .from { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.5em; color: var(--muted); margin: 0.4em 0 0.2em; }
-    .prompt, .term { font-family: var(--mono); font-size: 0.62em; line-height: 1.5; border-radius: 5px; padding: 0.9em 1.1em; white-space: pre-wrap; word-break: break-word; }
+    .prompt, .term { font-family: var(--mono); font-size: 0.6em; line-height: 1.5; border-radius: 5px; padding: 0.85em 1.05em; white-space: pre-wrap; word-break: break-word; }
     .prompt { background: var(--card); color: var(--ink); border: 1px solid var(--hairline); }
     .term { background: var(--panel); color: var(--paper); border: 1px solid #2a2a2a; }
 
@@ -76,16 +86,16 @@
       <h1>How to Become a<br/>100x&nbsp;Engineer</h1>
       <hr/>
       <p class="lead">One loop. Built live.</p>
-      <p class="muted">You don't type faster. You run a better loop — the same AI everyone has, used inside a real workflow.</p>
-      <aside class="notes">Welcome. Today we don't talk theory. We build one small thing and ship it live, using one repeatable loop. By the end you'll have done it yourself.</aside>
+      <p class="muted">We'll learn one simple loop — then watch a team of AI agents build a real app from scratch with it, live.</p>
+      <aside class="notes">No theory dump. We teach one loop, break down the machinery that scales it, then rebuild a real app (Aurora) from scratch live with an agent team. By the end you'll have the prompt to do it yourself.</aside>
     </section>
 
     <!-- 2 · What 100x means -->
     <section data-background-color="#F4F1EA">
       <span class="label accent">The idea</span>
       <p class="big">100x isn't speed.<br/>It's a loop.</p>
-      <p class="muted">Everyone has the same model. The difference is the four moves you make around it. Same chef — better kitchen.</p>
-      <aside class="notes">Kill the "type 10x faster" myth early. The leverage isn't keystrokes; it's the loop and not rushing it.</aside>
+      <p class="muted">Everyone has the same model. The difference is the four moves you make around it — and the machine you build to run them. Same chef, better kitchen.</p>
+      <aside class="notes">Kill the "type faster" myth. Leverage is the loop plus the harness around it, not keystrokes.</aside>
     </section>
 
     <!-- 3 · The loop -->
@@ -98,95 +108,111 @@
         <div class="step"><span class="n">03</span><span class="k">Build</span><span class="v">Let it write the code. Run it.</span></div>
         <div class="step"><span class="n">04</span><span class="k">Ship</span><span class="v">Put it online. Send the link.</span></div>
       </div>
-      <p class="muted" style="margin-top:0.7em;">That's it. Everything else is detail.</p>
-      <aside class="notes">This is the only framework in the talk. We'll do one full lap, live. Point at this slide every time we move to the next step.</aside>
+      <p class="muted" style="margin-top:0.6em;">That's it. Everything else makes this loop bigger, faster, and self-improving.</p>
+      <aside class="notes">The only framework in the talk. Next we break down the three things that scale this loop — then we run it live.</aside>
     </section>
 
-    <!-- 4 · Setup -->
+    <!-- 4 · Harness -->
     <section data-background-color="#F4F1EA">
-      <span class="label">What you need</span>
-      <h2>Three things.</h2>
+      <span class="label accent">The machinery · 01</span>
+      <h2>The harness.</h2>
+      <p>Everything around the model — your files, your tools, your rules, your checks. The model reasons; the <strong>harness</strong> decides what it sees, what it can do, and what counts as done.</p>
+      <p class="punch">A better harness beats a better model. And it <em>improves the loop itself</em> — every run writes a lesson back, every mistake becomes a rule.</p>
+      <aside class="notes">This is the word of the year — Anthropic, OpenAI, everyone. The model is a commodity; the harness is your edge. Key idea to plant: the harness is not static. It learns. CLAUDE.md + a knowledge-base + checks = a harness that gets better each lap.</aside>
+    </section>
+
+    <!-- 5 · Agent Teams -->
+    <section data-background-color="#F4F1EA">
+      <span class="label accent">The machinery · 02</span>
+      <h2>Agent teams.</h2>
+      <p>Not one assistant — a small team of <strong>named specialists</strong> with one lead: a builder, a designer, a tester. You direct; they work in parallel on different files.</p>
+      <p class="punch">And they <em>self-refine</em> — the memory base and each agent's job description accumulate what worked. Next time, the team is sharper.</p>
+      <aside class="notes">Reframe sub-agents from "parallel processes" to "named staff with job descriptions." You multiply judgment, not replace it. Self-improvement: personas + knowledge-base compound, so the team you hire today is better next week. Enable with one flag (we'll see it live).</aside>
+    </section>
+
+    <!-- 6 · Workflows -->
+    <section data-background-color="#F4F1EA">
+      <span class="label accent">The machinery · 03</span>
+      <h2>Workflows.</h2>
+      <p>The steps, <strong>written down once</strong>, so the AI runs them the same way every time: <em>Plan → Build → Verify → Ship</em>, with binary gates. Repeatable quality, hands-off.</p>
+      <p class="punch">Dynamic — the workflow fans out work, checks itself, and <em>tightens with every run</em>.</p>
+      <aside class="notes">A workflow moves the plan out of turn-by-turn chat and into a repeatable recipe with gates. "A gate is binary — mostly-works is not passed." Dynamic workflows can parallelize and self-check (adversarial review). It's the loop, automated and reliable.</aside>
+    </section>
+
+    <!-- 7 · It compounds -->
+    <section class="dark" data-background-color="#1A1A1A">
+      <span class="label">Why it wins</span>
+      <p class="big" style="color:var(--paper);">The loop that<br/>improves itself.</p>
       <div class="loop">
-        <div class="step"><span class="n">·</span><span class="k">A terminal</span><span class="v">Where you talk to it.</span></div>
-        <div class="step"><span class="n">·</span><span class="k">Claude Code</span><span class="v">The AI that builds in your project.</span></div>
-        <div class="step"><span class="n">·</span><span class="k">One MCP</span><span class="v">Live docs (optional). Context7.</span></div>
+        <div class="step" style="border-color:#3a3a3a;"><span class="n">→</span><span class="k" style="color:var(--paper);">Run</span><span class="v" style="color:var(--accent-soft);">The team builds, verifies, ships.</span></div>
+        <div class="step" style="border-color:#3a3a3a;"><span class="n">→</span><span class="k" style="color:var(--paper);">Capture</span><span class="v" style="color:var(--accent-soft);">Decisions + learnings written back to the memory base.</span></div>
+        <div class="step" style="border-color:#3a3a3a;border-bottom-color:#3a3a3a;"><span class="n">→</span><span class="k" style="color:var(--paper);">Compound</span><span class="v" style="color:var(--accent-soft);">The next lap starts smarter.</span></div>
       </div>
-      <p class="from">Install once, then just talk to it:</p>
-      <div class="term">npm install -g @anthropic-ai/claude-code
-claude</div>
-      <aside class="notes">Don't over-tool. Three things. Everything else can wait. If they only do one thing tonight, install Claude Code.</aside>
+      <p style="color:var(--accent-soft);margin-top:0.6em;">You're not just shipping features. You're upgrading the machine that ships them.</p>
+      <aside class="notes">This is the payoff slide and the heart of the talk. Self-learning isn't magic — it's a discipline: write back what you decided and learned, every iteration. The harness compounds while you sleep. Tie back to the harness slide.</aside>
     </section>
 
-    <!-- 5 · The mission -->
+    <!-- 8 · The team that builds Aurora -->
     <section data-background-color="#F4F1EA">
-      <span class="label accent">Today, live</span>
-      <h2>Build a tiny website —<br/>and ship it.</h2>
-      <p class="muted">From nothing to a real page on the internet, in a handful of prompts. One lap of the loop. Follow along on your own machine.</p>
-      <aside class="notes">Set the demo: a simple one-page site for a made-up coffee shop, "Ember." Keep it small so we actually finish and deploy on the clock.</aside>
+      <span class="label">The team that builds it</span>
+      <h2>Named staff, one lead.</h2>
+      <div class="team">
+        <div class="m"><span class="nm">director</span><span class="ro">Orchestrates, holds the gates. <span class="x">Never writes code.</span></span></div>
+        <div class="m"><span class="nm">tpm</span><span class="ro">Turns the goal into ordered tasks with a binary "done."</span></div>
+        <div class="m"><span class="nm">cto</span><span class="ro">Architecture + the build/type gate. Final sign-off.</span></div>
+        <div class="m"><span class="nm">fullstack-engineer</span><span class="ro">The surfaces + the fake-data seam. <span class="x">The one who types.</span></span></div>
+        <div class="m"><span class="nm">ui-ux-designer</span><span class="ro">The editorial-luxury design system.</span></div>
+        <div class="m"><span class="nm">qa</span><span class="ro">Playwright proof. <span class="x">Proves behavior; never asserts it.</span></span></div>
+      </div>
+      <p class="muted" style="margin-top:0.5em;">Each is one markdown file in <em>.claude/agents/</em>. Parallel on separate files; serial through the gates.</p>
+      <aside class="notes">These are the real agents in the repo — one .md job description each. Show the folder live if you can. The point: you HIRE a team by writing files. director leads and never codes; qa is the one who says "done." This is the harness made concrete.</aside>
     </section>
 
-    <!-- 6 · Context (live) -->
+    <!-- 9 · The starter prompt -->
     <section data-background-color="#F4F1EA">
-      <span class="demo">Live</span> <span class="label" style="margin-left:0.5em;">Step 1 · Context</span>
-      <h2>Tell it what you're building.</h2>
-      <p class="from">paste into Claude Code</p>
-      <div class="prompt">A simple one-page site for a coffee shop called Ember — a hero, the menu, hours, and a "Visit us" button. Clean and modern. Use Next.js + Tailwind.</div>
-      <p class="muted">One paragraph of context beats ten follow-up corrections.</p>
-      <aside class="notes">Type it, don't read it. Show that a clear paragraph up front is the whole game. Mention: a CLAUDE.md file is just this context, saved.</aside>
-    </section>
-
-    <!-- 7 · Plan (live) -->
-    <section data-background-color="#F4F1EA">
-      <span class="demo">Live</span> <span class="label" style="margin-left:0.5em;">Step 2 · Plan</span>
-      <h2>Ask for the plan first.</h2>
-      <p class="from">paste into Claude Code</p>
-      <div class="prompt">Before you write any code — give me the plan. What pages, what sections, what files. Keep it short. I'll approve it.</div>
-      <p class="muted">Two minutes reading the plan saves an hour rewriting the code. <em>(In Claude Code: plan mode.)</em></p>
-      <aside class="notes">This is the step everyone skips and it's where the leverage is. Read the plan out loud, tweak one thing, then approve. Show the pause is the point.</aside>
-    </section>
-
-    <!-- 8 · Build (live) -->
-    <section data-background-color="#F4F1EA">
-      <span class="demo">Live</span> <span class="label" style="margin-left:0.5em;">Step 3 · Build</span>
-      <h2>Let it build. Run it.</h2>
-      <p class="from">paste into Claude Code</p>
-      <div class="prompt">Looks good — build it. Then start the dev server so I can see it.</div>
-      <div class="term" style="margin-top:0.5em;">npm run dev   →   http://localhost:3000</div>
-      <p class="muted">You watch and steer. You don't write the boilerplate.</p>
-      <aside class="notes">Let it run. Open localhost. If something's off, don't fix it by hand — describe what's wrong and let it adjust. That's steering, not coding.</aside>
-    </section>
-
-    <!-- 9 · Ship (live) -->
-    <section data-background-color="#F4F1EA">
-      <span class="demo">Live</span> <span class="label" style="margin-left:0.5em;">Step 4 · Ship</span>
-      <h2>Put it online.</h2>
-      <p class="from">paste into Claude Code</p>
-      <div class="prompt">Deploy this to Vercel and give me the live link.</div>
-      <p class="muted">Shipping isn't a URL existing on the internet. Shipping is <em>sending the link to someone</em> — and waiting for the reply.</p>
-      <aside class="notes">Deploy, open the live URL on your phone, and literally text the link to someone in the chat. That moment — a stranger opening your thing — is the point.</aside>
-    </section>
-
-    <!-- 10 · Level up: harness, teams, workflows -->
-    <section data-background-color="#F4F1EA">
-      <span class="label accent">When you're ready</span>
-      <h2>Three ways to scale the loop.</h2>
+      <span class="label accent">The go button</span>
+      <h2>One prompt. From scratch.</h2>
+      <p class="muted">Paste this into a fresh Claude Code session — it plans, builds with the team, verifies, and ships, using the repo's best practices.</p>
       <div class="loop">
-        <div class="step"><span class="n">·</span><span class="k">Harness</span><span class="v">Everything around the AI — your files, tools, rules, checks. A better harness beats a better model.</span></div>
-        <div class="step"><span class="n">·</span><span class="k">Agent&nbsp;Teams</span><span class="v">Named specialists working at once — a builder, a designer, a tester — with one lead.</span></div>
-        <div class="step"><span class="n">·</span><span class="k">Workflows</span><span class="v">The steps written down once, so the AI runs them the same way every time.</span></div>
+        <div class="step"><span class="n">1</span><span class="k">Memory base</span><span class="v">CLAUDE.md + knowledge-base/ first.</span></div>
+        <div class="step"><span class="n">2</span><span class="k">Harness</span><span class="v">.claude/agents + settings + a gated workflow.</span></div>
+        <div class="step"><span class="n">3</span><span class="k">Plan</span><span class="v">Plan mode. You approve before any code.</span></div>
+        <div class="step"><span class="n">4</span><span class="k">Build</span><span class="v">The team builds storefront + command center in parallel.</span></div>
+        <div class="step"><span class="n">5</span><span class="k">Prove + ship</span><span class="v">Playwright full-loop, deploy, write the lesson back.</span></div>
       </div>
-      <p class="muted" style="margin-top:0.7em;">Same loop — <em>Context → Plan → Build → Ship</em> — just bigger. Master it small first.</p>
-      <aside class="notes">Name these, don't teach them deeply. Harness = the kitchen we've been building (your CLAUDE.md, plan mode, the checks) — Anthropic, OpenAI, everyone calls this the real skill now. Agent teams = flip one flag and Claude runs parallel specialists. Workflows = write the recipe once, run it hands-off. It's all the SAME loop, scaled. Reassure them: get one clean lap first; this is the growth path.</aside>
+      <p class="from">full prompt → deck/starter-prompt.md (copy-paste)</p>
+      <aside class="notes">This is the artifact they take home. Walk the 6 moves once, then open starter-prompt.md and copy it. The full text encodes every best practice from the real repo. This is what turns "watch me" into "you can do this tonight."</aside>
     </section>
 
-    <!-- 11 · Recap + habit + CTA -->
+    <!-- 10 · Build it live -->
+    <section data-background-color="#F4F1EA">
+      <span class="demo">Live</span> <span class="label" style="margin-left:0.5em;">Build it — from nothing</span>
+      <h2>Watch the loop run.</h2>
+      <p class="from">enable the team, then paste the starter prompt</p>
+      <div class="term">CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude</div>
+      <p class="muted" style="margin-top:0.4em;">It writes the memory base → <strong>plans</strong> (you approve) → the team builds the storefront and command center <strong>in parallel</strong> on one fake-data seam. Same loop as slide 3 — just bigger.</p>
+      <aside class="notes">The big moment. Empty folder → paste prompt. Narrate the loop as it runs: point back to Context→Plan→Build→Ship. Pause at the plan gate and actually read/approve it on stage. If a step stalls, keep talking — the plan is the lesson, not the speed.</aside>
+    </section>
+
+    <!-- 11 · Prove it + ship it -->
+    <section data-background-color="#F4F1EA">
+      <span class="demo">Live</span> <span class="label" style="margin-left:0.5em;">Verify · Ship · Write it back</span>
+      <h2>Prove it. Ship it.</h2>
+      <p>qa writes the test that <em>is</em> the thesis: a customer checks out on the storefront → that exact order shows up in the command center.</p>
+      <div class="term">pnpm test:e2e   →   green</div>
+      <p class="muted" style="margin-top:0.4em;">Then deploy, send the link — and write what we learned back to <em>knowledge-base/</em>, so the next build starts smarter.</p>
+      <aside class="notes">Verification is the 100x differentiator — prove behavior, don't assert it. The full-loop test (checkout → command center) is the whole app proven in one run. Close the loop on stage by committing a decision/learning back — that's the compounding harness in action.</aside>
+    </section>
+
+    <!-- 12 · Recap + CTA -->
     <section class="dark" data-background-color="#1A1A1A">
       <span class="label">That's the loop</span>
-      <h2>Context → Plan → Build → Ship.<br/>Then again.</h2>
-      <p>Keep one notes file — <strong>CLAUDE.md</strong> — so it remembers your project. Run the loop for the next feature. That's the whole habit.</p>
+      <h2>Context → Plan → Build → Ship.<br/>Then write it back.</h2>
+      <p>One loop. A harness that learns. A team that refines. Run it, capture what you learned, run it again — that's the 100x habit.</p>
       <hr/>
-      <p class="lead">Tonight: build one tiny thing and ship it.</p>
-      <aside class="notes">Close on the habit, not the hype. One loop, one notes file, repeat. Give them the homework: ship one small thing before tomorrow. Q&A.</aside>
+      <p class="lead">Tonight: clone the repo, run the starter prompt, build one thing.</p>
+      <p class="muted">github.com/christian-deeplearner/aurora-commerce</p>
+      <aside class="notes">Close on the habit, not the hype: one loop, a memory base, repeat — and it compounds. Homework: enable agent teams, run the starter prompt, ship one thing before tomorrow. Q&A.</aside>
     </section>
 
   </div></div>
